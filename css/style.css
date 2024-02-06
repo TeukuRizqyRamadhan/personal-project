@@ -53,6 +53,95 @@ nav .right a {
 
 /* Navbar End */
 
+/* Index Start */
+
+.container {
+    width: 1000px; 
+    margin: auto; 
+    margin-top: 80px; 
+    background-color: #fff; 
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 5px 5px 55px #d4d4d4;  
+}
+
+.container .kiri {
+    flex: 1;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+
+.container .kiri .paragraph {
+    text-align: justify; 
+    font-size: small;
+    font-weight: 500;
+}
+
+.container .kiri .action {
+    display: flex;
+    align-items: center;
+}
+
+.container .kiri .action button {
+    background-color: black; 
+    color: white; 
+    width: 100px; 
+    height: 35px; 
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+.container .kiri .action a {
+    text-decoration: none; color: white;
+}
+
+.container .kiri .sosmed {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.container .kiri .sosmed img {
+    width:36px;
+    height:36px; 
+}
+
+.container .kanan {
+    flex: 1;
+    margin-bottom: 25px;
+}
+
+.container .kanan .card {
+    width: 350px; 
+    margin: auto; 
+    margin-top: 40px; 
+    box-shadow: 5px 5px 15px #CCC;  
+    border-radius: 10px;
+}
+
+.container .kanan img {
+    width: 100%; 
+    border-top-right-radius: 10px; 
+    border-top-left-radius: 10px;
+}
+
+.container .kanan .card h1 {
+    text-align: center; 
+    font-size: large;
+}
+.container .kanan .card p {
+    text-align: center; 
+    font-size: small; 
+    margin-top: -10px; 
+    padding-bottom: 20px;
+}
+
+/* Index End */
+
+/* Contact Start */
+
 .judul {
     font-weight: bold;
     margin-top: 30px;
@@ -101,3 +190,5 @@ form div button {
     display: flex;
     justify-content: end;
 }
+
+/* Contact End */
