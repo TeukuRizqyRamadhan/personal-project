@@ -30,10 +30,10 @@ nav .left ul li a {
     text-decoration: none;
 }
 
-/* nav .left ul .active {
+nav .left ul .active {
     font-weight: 1000;
     color: black;
-} */
+}
 
 nav .left ul li {
     list-style: none;
