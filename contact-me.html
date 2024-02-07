@@ -29,22 +29,22 @@
     <form class="form">
     <div>
         <label>Name</label>
-         <input type="text">
+        <input type="text" id="name" />
     </div>
 
     <div>
         <label>Email</label>
-        <input type="email">
+        <input type="email" id="email" />
     </div>
 
     <div>
         <label>Phone Number</label>
-        <input type="number">
+        <input type="text" id="phone" />
     </div>
         
     <div>
         <label>Subject</label>
-        <select>
+        <select id="subject">
             <option hidden></option>
             <option>Frontend</option>
             <option>Backend</option>
@@ -53,11 +53,12 @@
     </div>
     <div>
         <label>Your Message</label>
-        <textarea></textarea>
+        <textarea id="message"></textarea>
     </div>
     <div class="submit">    
-        <button>Submit</button>
+        <button type="button" onclick="getData()">Submit</button>
     </div>
     </form>
 </body>
+<script src="js/script.js"></script>
 </html>
