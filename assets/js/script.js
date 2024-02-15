@@ -20,7 +20,7 @@ if (name == "") {
 
 const emailDestination = "teukurizqyr@gmail.com"
 let a = document.createElement("a")
-a.href = `mailto:${emailDestination}?subject=${subject}&body= Halo bang nama saya ${name}, pesan saya adalah ${message}, bisakah anda menghubungi saya di ${phone} `
+a.href = `mailto:teukurizqyr@gmail.com?subject=${subject}&body= Halo bang nama saya ${name}, pesan saya adalah ${message}, bisakah anda menghubungi saya di ${phone} `
 a.click()
 
 const data = {
