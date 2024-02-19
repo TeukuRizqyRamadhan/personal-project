@@ -5,6 +5,7 @@
     <title>Contact Me</title>
     <link rel="stylesheet" href="assets/css/contact.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/2a19752420.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
@@ -22,7 +23,17 @@
         <div class="right">
             <a href="">Contact Me</a>
         </div>
+        <div class="hamburger">
+            <button style="background-color: transparent; border: none; cursor: pointer;" onclick="openHamburger()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </nav>
+    <div class="hamburger-items" id="hamburger-items">
+        <a href="index.html">Home</a>
+        <a href="project.html">My Project</a>
+        <a href="contact-me.html" class="contact">Contact Me</a>
+    </div>
     <div class="judul">
         <h1>GET IN TOUCH</h1>
     </div>
@@ -61,4 +72,5 @@
     </form>
 </body>
 <script src="assets/js/script.js"></script>
+<script src="assets/js/index.js"></script>
 </html>

@@ -49,8 +49,8 @@ function renderBlog() {
         ${dataBlogs[index].technology.map((item)=>`<i class='${item}'></i>`).join(" ")}
         </div>
         <div class="btn-group">
-          <button class="button">Edit Post</button>
-          <button class="btn-post">Delete Post</button>
+          <button class="button">Edit</button>
+          <button class="btn-post">Delete</button>
         </div>
     </div>
     </div>

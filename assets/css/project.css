@@ -18,6 +18,10 @@ nav {
     align-items: center;
 }
 
+nav .hamburger {
+    display:none;
+}
+
 nav .left ul {
     display: flex;
     align-items: center;
@@ -57,6 +61,19 @@ nav .right a {
 
 /* Navbar End */
 
+.hamburger-items {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: tomato;
+}
+
+.hamburger-items a {
+    display: none;
+    justify-content: center;
+    text-decoration: none;
+}
+
 /* Form Start */
 
 .blog-form {
@@ -89,6 +106,7 @@ select {
 .input-date {
     display: flex; 
     justify-content: space-between; 
+    gap: 1px;
 }
 
 .blog-form form textarea {
@@ -119,6 +137,7 @@ form div button {
   .checkbox {
     display: flex;
     max-width: 100%;
+    flex-wrap: nowrap;
     
     label{
       font-weight:400;
@@ -136,6 +155,10 @@ form div button {
     margin-right: 10px;
   }
 /* Form End */
+
+.container {
+    display: flex;
+}
 
 .blog-list {
     margin-top: 2px;
@@ -202,4 +225,139 @@ form div button {
 .technology .fa-brands{
   margin-bottom: 30px;
   margin-right: 10px;
+}
+
+@media screen and (max-width:700px) {
+    nav ul li a {
+        display: none;
+    }
+
+    nav .right {
+        display: none;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    .hamburger-items {
+        margin-top: 1em;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #E3E7EB;
+    }
+    
+    .hamburger-items a {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+    }
+
+    .hamburger-items .contact {
+        background-color: #111727;
+        padding: 10px 10px;
+        border-radius: 10px;
+    }
+    .hamburger-items .contact {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+    }
+
+    .hamburger-items .active {
+        font-weight: 1000;
+        color: black;
+    }
+
+    .form-container {
+        margin: auto 1em;
+    }
+    
+    .form-container .input-date {
+        gap: 10px;
+    }
+
+    .form-container .checkbox {
+        flex-wrap: wrap;
+    }
+
+    .blog-list {
+        /* margin-top: 2px;
+        margin-bottom: 80px;
+        margin-left: 1em; */
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* background-color: red; */
+        width: 100%;
+        justify-content: center;
+      }
+
+    .detail-blog-content {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 20px;
+        margin-top: 20px;
+      }
+    
+    .btn-group {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em;
+        justify-content: center;
+    }
+
+    .btn-group button {
+        background-color: #111727;
+        padding: 2px 5px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .btn-group button {
+        font-size: 0.8em;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        width: 180px;
+    }
+
+    .container .card {
+        width: 100%;
+        height: 310px;
+        padding: 5px;
+        box-shadow: 5px 5px 15px #CCC;  
+        border-radius: 10px;
+        /* background-color: green; */
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .container .card .blog-content {
+        padding: 5px;
+    }
+
+    .container .card a {
+        font-size: 10px;
+        font-weight: 1000;
+    }
+
+    .container .card p {
+        font-size: 8px;
+    }
+    
+    .technology .fa-2xl{
+      /* margin-left: 2px; */
+      font-size: 15px;
+    }
 }
