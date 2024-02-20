@@ -91,18 +91,6 @@ nav .right a {
     margin-bottom: 40px;
 }
 
-.blog-form form input,
-textarea,
-select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  background: #f4f3f3;
-  border: 1px solid #c4c4c4;
-  border-radius: 8px;
-}
-
 .input-date {
     display: flex; 
     justify-content: space-between; 
@@ -133,6 +121,16 @@ form div button {
     display: flex;
     justify-content: end;
 }
+
+.blog-form form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: #f4f3f3;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+}
   
   .checkbox {
     display: flex;
@@ -149,6 +147,37 @@ form div button {
       }
     }
 
+  }
+
+  .blog-form form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: #f4f3f3;
+    border: 1px solid #cacaca;
+    border-radius: 8px;
+  }
+
+  .blog-form form input[type=checkbox] {
+    width: 50px;
+  }
+
+
+.tech {
+    margin-bottom: 10px;
+}
+  .checkbox-test {
+    display: flex;
+    margin-left: -20px;
+}
+
+.checkbox-test label{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
   }
   
   input {
@@ -286,8 +315,8 @@ form div button {
 
     .blog-list {
         /* margin-top: 2px;
-        margin-bottom: 80px;
-        margin-left: 1em; */
+        margin-bottom: 80px; */
+        margin: auto 15px;
         padding-top: 10px;
         display: flex;
         align-items: center;
@@ -295,7 +324,6 @@ form div button {
         flex-wrap: wrap;
         /* background-color: red; */
         width: 100%;
-        justify-content: center;
       }
 
     .detail-blog-content {
