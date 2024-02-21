@@ -1,125 +1,124 @@
 * {
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
-  }
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
 body {
-    background-color: #E3E7EB; 
-    font-family: 'Poppins';
-    margin: 0;
+  background-color: #e3e7eb;
+  font-family: "Poppins";
+  margin: 0;
 }
 
 /* Navbar Start */
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: #F4F3F3;
-    padding: 0 40px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f3f3;
+  padding: 0 40px;
+  align-items: center;
 }
 
 nav .hamburger {
-    display:none;
+  display: none;
 }
 
 nav .left ul {
-    display: flex;
-    align-items: center;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
 nav .left ul img {
-    width: 50px;
-    margin-right: 40px;
+  width: 50px;
+  margin-right: 40px;
 }
 
 nav .left ul li a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 nav .left ul .active {
-    font-weight: 1000;
-    color: black;
+  font-weight: 1000;
+  color: black;
 }
 
 nav .left ul li {
-    list-style: none;
-    margin-right: 25px;
+  list-style: none;
+  margin-right: 25px;
 }
 
 nav .right {
-    background-color: #111727;
-    padding: 10px 25px;
-    border-radius: 10px;
+  background-color: #111727;
+  padding: 10px 25px;
+  border-radius: 10px;
 }
 nav .right a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
 }
 
 /* Navbar End */
 
 .hamburger-items {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: tomato;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: tomato;
 }
 
 .hamburger-items a {
-    display: none;
-    justify-content: center;
-    text-decoration: none;
+  display: none;
+  justify-content: center;
+  text-decoration: none;
 }
 
 /* Form Start */
 
 .blog-form {
-    padding: 50px 0;
-    display: flex;
-    justify-content: center;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .blog-form .form-container {
-    width: 500px;
+  width: 500px;
 }
 
 .blog-form .form-container h1 {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .input-date {
-    display: flex; 
-    justify-content: space-between; 
-    gap: 1px;
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
 }
 
 .blog-form form textarea {
   height: 100px;
   resize: none;
 }
-  
 
 form label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 form div button {
-    background-color: #111727;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
+  background-color: #111727;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 .submit {
-    margin-top: 30px;
-    display: flex;
-    justify-content: end;
+  margin-top: 30px;
+  display: flex;
+  justify-content: end;
 }
 
 .blog-form form textarea {
@@ -131,265 +130,263 @@ form div button {
   border: 1px solid #c4c4c4;
   border-radius: 8px;
 }
-  
-  .checkbox {
-    display: flex;
-    max-width: 100%;
-    flex-wrap: nowrap;
-    
-    label{
-      font-weight:400;
-      display: table;
-      width: 50%;
-      padding-top: 9px;
-      > *{
-       display: table-cell;
-      }
+
+.checkbox {
+  display: flex;
+  max-width: 100%;
+  flex-wrap: nowrap;
+
+  label {
+    font-weight: 400;
+    display: table;
+    width: 50%;
+    padding-top: 9px;
+    > * {
+      display: table-cell;
     }
-
   }
+}
 
-  .blog-form form input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    background: #f4f3f3;
-    border: 1px solid #cacaca;
-    border-radius: 8px;
-  }
+.blog-form form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: #f4f3f3;
+  border: 1px solid #cacaca;
+  border-radius: 8px;
+}
 
-  .blog-form form input[type=checkbox] {
-    width: 50px;
-  }
-
+.blog-form form input[type="checkbox"] {
+  width: 50px;
+}
 
 .tech {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-  .checkbox-test {
-    display: flex;
-    margin-left: -20px;
+.checkbox-test {
+  display: flex;
+  margin-left: -20px;
 }
 
-.checkbox-test label{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    padding: 0;
-    margin: 0;
-  }
+.checkbox-test label {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
 
-  .checkbox-test label span{
-    font-weight: lighter;
-  }
-  
-  input {
-    margin-right: 10px;
-  }
+.checkbox-test label span {
+  font-weight: lighter;
+}
+
+input {
+  margin-right: 10px;
+}
 /* Form End */
 
 .container {
-    display: flex;
+  display: flex;
 }
 
 .blog-list {
-    margin-top: 2px;
-    margin-bottom: 80px;
+  margin-top: 2px;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container {
+  margin-bottom: 25px;
+  display: flex;
+  width: 33%;
+  justify-content: center;
+}
+
+.container .card {
+  width: 350px;
+  margin-top: 40px;
+  padding: 20px;
+  box-shadow: 5px 5px 15px #ccc;
+  border-radius: 10px;
+}
+
+.container img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.container .card h1 {
+  text-align: left;
+  font-size: large;
+}
+
+.container .card a {
+  color: #111727;
+}
+.container .card p {
+  text-align: justify;
+  word-wrap: break-word;
+  font-size: small;
+  margin-top: -10px;
+  padding-bottom: 20px;
+}
+.blog .blog-list .blog-list-item .blog-content {
+  padding-left: 20px;
+}
+.detail-blog-content {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 20px;
+  margin-top: 20px;
+}
+
+.btn-group button {
+  background-color: #111727;
+  padding: 8px 50px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+}
+
+.technology .fa-brands {
+  margin-bottom: 30px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  nav ul li a {
+    display: none;
+  }
+
+  nav .right {
+    display: none;
+  }
+
+  nav .hamburger {
+    display: block;
+  }
+
+  .hamburger-items {
+    margin-top: 1em;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e3e7eb;
+  }
+
+  .hamburger-items a {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+  }
+
+  .hamburger-items .contact {
+    background-color: #111727;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+  .hamburger-items .contact {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+
+  .hamburger-items .active {
+    font-weight: 1000;
+    color: black;
+  }
+
+  .form-container {
+    margin: auto 1em;
+  }
+
+  .form-container .input-date {
+    gap: 10px;
+  }
+
+  .form-container .checkbox {
+    flex-wrap: wrap;
+  }
+
+  .blog-list {
+    /* margin-top: 2px;
+        margin-bottom: 80px; */
+    margin: auto 15px;
+    padding-top: 10px;
     display: flex;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+    /* background-color: red; */
+    width: 100%;
   }
 
-  .container  {
-    margin-bottom: 25px;
-    display: flex;
-    width: 33%;
-    justify-content: center;
-}
-
-.container  .card {
-    width: 350px; 
-    margin-top: 40px; 
-    padding: 20px;
-    box-shadow: 5px 5px 15px #CCC;  
-    border-radius: 10px;
-}
-
-.container  img {
-    width: 100%; 
-    border-radius: 3px;
-}
-
-.container  .card h1 {
-    text-align: left; 
-    font-size: large;
-}
-
-.container .card a {
-    color: #111727;
-}
-.container  .card p {
-    text-align: justify; 
-    word-wrap: break-word;
-    font-size: small; 
-    margin-top: -10px; 
-    padding-bottom: 20px;
-}
-.blog .blog-list .blog-list-item .blog-content {
-    padding-left: 20px;
-  }
-.detail-blog-content {
+  .detail-blog-content {
     font-weight: 300;
     font-size: 12px;
     line-height: 20px;
     margin-top: 20px;
   }
 
-.btn-group button {
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    justify-content: center;
+  }
+
+  .btn-group button {
     background-color: #111727;
-    padding: 8px 50px;
+    padding: 2px 5px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     color: white;
-}
+  }
 
-.technology .fa-brands{
-  margin-bottom: 30px;
-  margin-right: 10px;
-}
+  .btn-group button {
+    font-size: 0.8em;
+  }
 
-@media screen and (max-width:700px) {
-    nav ul li a {
-        display: none;
-    }
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    width: 180px;
+  }
 
-    nav .right {
-        display: none;
-    }
+  .container .card {
+    width: 100%;
+    height: 310px;
+    padding: 5px;
+    box-shadow: 5px 5px 15px #ccc;
+    border-radius: 10px;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
 
-    nav .hamburger {
-        display: block;
-    }
+  .container .card .blog-content {
+    padding: 5px;
+  }
 
-    .hamburger-items {
-        margin-top: 1em;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: #E3E7EB;
-    }
-    
-    .hamburger-items a {
-        margin: 1em;
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-        color: black;
-    }
+  .container .card a {
+    font-size: 10px;
+    font-weight: 1000;
+  }
 
-    .hamburger-items .contact {
-        background-color: #111727;
-        padding: 10px 10px;
-        border-radius: 10px;
-    }
-    .hamburger-items .contact {
-        text-decoration: none;
-        color: white;
-        font-weight: 500;
-    }
+  .container .card p {
+    font-size: 8px;
+  }
 
-    .hamburger-items .active {
-        font-weight: 1000;
-        color: black;
-    }
-
-    .form-container {
-        margin: auto 1em;
-    }
-    
-    .form-container .input-date {
-        gap: 10px;
-    }
-
-    .form-container .checkbox {
-        flex-wrap: wrap;
-    }
-
-    .blog-list {
-        /* margin-top: 2px;
-        margin-bottom: 80px; */
-        margin: auto 15px;
-        padding-top: 10px;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        /* background-color: red; */
-        width: 100%;
-      }
-
-    .detail-blog-content {
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 20px;
-        margin-top: 20px;
-      }
-    
-    .btn-group {
-        display: flex;
-        flex-direction: row;
-        gap: 0.5em;
-        justify-content: center;
-    }
-
-    .btn-group button {
-        background-color: #111727;
-        padding: 2px 5px;
-        border: none;
-        border-radius: 5px;
-        color: white;
-    }
-
-    .btn-group button {
-        font-size: 0.8em;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: row;
-        flex-flow: wrap;
-        width: 180px;
-    }
-
-    .container .card {
-        width: 100%;
-        height: 310px;
-        padding: 5px;
-        box-shadow: 5px 5px 15px #CCC;  
-        border-radius: 10px;
-        /* background-color: green; */
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-    }
-
-    .container .card .blog-content {
-        padding: 5px;
-    }
-
-    .container .card a {
-        font-size: 10px;
-        font-weight: 1000;
-    }
-
-    .container .card p {
-        font-size: 8px;
-    }
-    
-    .technology .fa-2xl{
-      /* margin-left: 2px; */
-      font-size: 15px;
-    }
+  .technology .fa-2xl {
+    /* margin-left: 2px; */
+    font-size: 15px;
+  }
 }

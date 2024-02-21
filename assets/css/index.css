@@ -1,233 +1,233 @@
 body {
-    background-color: #E3E7EB; 
-    font-family: 'Poppins';
-    margin: 0;
+  background-color: #e3e7eb;
+  font-family: "Poppins";
+  margin: 0;
 }
 
 /* Navbar Start */
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: #F4F3F3;
-    padding: 0 40px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f3f3;
+  padding: 0 40px;
+  align-items: center;
 }
 
 nav .hamburger {
-    display:none;
+  display: none;
 }
 
 nav .left ul {
-    display: flex;
-    align-items: center;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
 nav .left ul img {
-    width: 50px;
-    margin-right: 40px;
+  width: 50px;
+  margin-right: 40px;
 }
 
 nav .left ul li a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 nav .left ul .active {
-    font-weight: 1000;
-    color: black;
+  font-weight: 1000;
+  color: black;
 }
 
 nav .left ul li {
-    list-style: none;
-    margin-right: 25px;
+  list-style: none;
+  margin-right: 25px;
 }
 
 nav .right {
-    background-color: #111727;
-    padding: 10px 25px;
-    border-radius: 10px;
+  background-color: #111727;
+  padding: 10px 25px;
+  border-radius: 10px;
 }
 nav .right a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
 }
 
 /* Navbar End */
 
 .hamburger-items {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: tomato;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: tomato;
 }
 
 .hamburger-items a {
-    display: none;
-    justify-content: center;
-    text-decoration: none;
+  display: none;
+  justify-content: center;
+  text-decoration: none;
 }
 
 /* Index Start */
 
 .container {
-    width: 1000px; 
-    margin: auto; 
-    margin-top: 80px; 
-    background-color: #fff; 
-    box-sizing: border-box;
-    display: flex;
-    border-radius: 10px;
-    box-shadow: 5px 5px 55px #d4d4d4;  
+  width: 1000px;
+  margin: auto;
+  margin-top: 80px;
+  background-color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 5px 5px 55px #d4d4d4;
 }
 
 .container .kiri {
-    flex: 1;
-    padding-left: 50px;
-    padding-top: 50px;
+  flex: 1;
+  padding-left: 50px;
+  padding-top: 50px;
 }
 
-
 .container .kiri .paragraph {
-    text-align: justify; 
-    font-size: small;
-    font-weight: 500;
+  text-align: justify;
+  font-size: small;
+  font-weight: 500;
 }
 
 .container .kiri .action {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .container .kiri .action button {
-    background-color: black; 
-    color: white; 
-    width: 100px; 
-    height: 35px; 
-    border-radius: 30px;
-    margin-right: 20px;
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 35px;
+  border-radius: 30px;
+  margin-right: 20px;
 }
 
 .container .kiri .action a {
-    text-decoration: none; color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .container .kiri .sosmed {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
 }
 .container .kiri .sosmed img {
-    width:36px;
-    height:36px; 
+  width: 36px;
+  height: 36px;
 }
 
 .container .kanan {
-    flex: 1;
-    margin-bottom: 25px;
+  flex: 1;
+  margin-bottom: 25px;
 }
 
 .container .kanan .card {
-    width: 350px; 
-    margin: auto; 
-    margin-top: 40px; 
-    box-shadow: 5px 5px 15px #CCC;  
-    border-radius: 10px;
+  width: 350px;
+  margin: auto;
+  margin-top: 40px;
+  box-shadow: 5px 5px 15px #ccc;
+  border-radius: 10px;
 }
 
 .container .kanan img {
-    width: 100%; 
-    border-top-right-radius: 10px; 
-    border-top-left-radius: 10px;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .container .kanan .card h1 {
-    text-align: center; 
-    font-size: large;
+  text-align: center;
+  font-size: large;
 }
 .container .kanan .card p {
-    text-align: center; 
-    font-size: small; 
-    margin-top: -10px; 
-    padding-bottom: 20px;
+  text-align: center;
+  font-size: small;
+  margin-top: -10px;
+  padding-bottom: 20px;
 }
 
 /* Index End */
 
-@media screen and (max-width:700px) {
-    nav ul li a {
-        display: none;
-    }
+@media screen and (max-width: 700px) {
+  nav ul li a {
+    display: none;
+  }
 
-    nav .right {
-        display: none;
-    }
+  nav .right {
+    display: none;
+  }
 
-    nav .hamburger {
-        display: block;
-    }
+  nav .hamburger {
+    display: block;
+  }
 
-    .hamburger-items {
-        margin-top: 1em;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: #E3E7EB;
-    }
-    
-    .hamburger-items a {
-        margin: 1em;
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-        color: black;
-    }
+  .hamburger-items {
+    margin-top: 1em;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e3e7eb;
+  }
 
-    .hamburger-items .contact {
-        background-color: #111727;
-        padding: 10px 10px;
-        border-radius: 10px;
-    }
-    .hamburger-items .contact {
-        text-decoration: none;
-        color: white;
-        font-weight: 500;
-    }
+  .hamburger-items a {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+  }
 
-    .container {
-        width: 100%; 
-        margin: auto; 
-        margin-top: 80px; 
-        background-color: #fff; 
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        border-radius: 10px;
-        box-shadow: 5px 5px 55px #d4d4d4;  
-    }
+  .hamburger-items .contact {
+    background-color: #111727;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+  .hamburger-items .contact {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
 
-    .container .kiri {
-        padding-left: 3em;
-        padding-top: 1em;
-        padding-right: 3em;
-    }
+  .container {
+    width: 100%;
+    margin: auto;
+    margin-top: 80px;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 5px 5px 55px #d4d4d4;
+  }
 
-    .container .kiri .sosmed {
-        width: 200px;
-        display: flex;
-        justify-content: space-between;
-        margin: 1em auto;
-    }
-    .container .kiri .sosmed img {
-        width:36px;
-        height:36px; 
-    }
+  .container .kiri {
+    padding-left: 3em;
+    padding-top: 1em;
+    padding-right: 3em;
+  }
 
-    .hamburger-items .active {
-        font-weight: 1000;
-        color: black;
-    }
+  .container .kiri .sosmed {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 1em auto;
+  }
+  .container .kiri .sosmed img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hamburger-items .active {
+    font-weight: 1000;
+    color: black;
+  }
 }
