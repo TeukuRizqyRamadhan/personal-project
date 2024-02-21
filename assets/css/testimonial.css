@@ -1,0 +1,110 @@
+* {
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #e3e7eb;
+    font-family: "Poppins";
+    margin: 0;
+}
+
+/* Navbar Start */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f4f3f3;
+    padding: 0 40px;
+    align-items: center;
+}
+
+nav .hamburger {
+    display: none;
+}
+
+nav .left ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+nav .left ul img {
+    width: 50px;
+    margin-right: 40px;
+}
+
+nav .left ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+nav .left ul .active {
+    font-weight: 1000;
+    color: black;
+}
+
+nav .left ul li {
+    list-style: none;
+    margin-right: 25px;
+}
+
+nav .right {
+    background-color: #111727;
+    padding: 10px 25px;
+    border-radius: 10px;
+}
+
+nav .right a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+/* Navbar End */
+
+.container h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container-card {
+    margin-bottom: 25px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.container-card .card {
+    width: 350px;
+    box-shadow: 5px 5px 15px #ccc;
+    border-radius: 10px;
+    margin: 3em;
+}
+
+.container-card img {
+    width: 90%;
+    display: flex;
+    margin: 5%;
+    border-radius: 5px;
+}
+
+.container-card .card p {
+    text-align: justify;
+    word-wrap: break-word;
+    font-size: small;
+    padding-bottom: 20px;
+}
+
+.desc-testi i {
+    margin-top: 2em;
+    margin-left: 1.8em;
+    font-size: small;
+}
+
+.name-testi p {
+    font-weight: bold;
+    margin-right: 2em;
+    display: flex;
+    justify-content: end;
+}

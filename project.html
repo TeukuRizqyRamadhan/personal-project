@@ -1,107 +1,114 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Project</title>
-    <link rel="stylesheet" href="assets/css/project.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/77b392a698.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Project</title>
+  <link rel="stylesheet" href="assets/css/project.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <script src="https://kit.fontawesome.com/77b392a698.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="left">
-            <ul>
-                <img src="assets/img/brandred.png" alt="logo-dumbways">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="project.html" class="active">My Project</a>
-                </li>
-            </ul>
-        </div>
-        <div class="right">
-            <a href="contact-me.html">Contact Me</a>
-        </div>
-     <div class="hamburger">
-            <button style="background-color: transparent; border: none; cursor: pointer;" onclick="openHamburger()">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-    <div class="hamburger-items" id="hamburger-items">
-        <a href="index.html">Home</a>
-        <a href="project.html" class="active">My Project</a>
-        <a href="contact-me.html" class="contact">Contact Me</a>
+  <!-- Navbar -->
+  <nav>
+    <div class="left">
+      <ul>
+        <img src="assets/img/brandred.png" alt="logo-dumbways">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="project.html" class="active">My Project</a>
+        </li>
+        <li>
+          <a href="testimonial.html">Testimonial</a>
+        </li>
+      </ul>
     </div>
+    <div class="right">
+      <a href="contact-me.html">Contact Me</a>
+    </div>
+    <div class="hamburger">
+      <button style="background-color: transparent; border: none; cursor: pointer;" onclick="openHamburger()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+  <div class="hamburger-items" id="hamburger-items">
+    <a href="index.html">Home</a>
+    <a href="project.html" class="active">My Project</a>
+    <a href="testimonial.html">Testimonial</a>
+    <a href="contact-me.html" class="contact">Contact Me</a>
+  </div>
 
-    <!-- Navbar -->
+  <!-- Navbar -->
 
-    <!-- Project -->
-        <div class="blog">
-            <div class="blog-form">
-              <div class="form-container">
-                <form onsubmit="addBlog(event)" id="card-form">
-                  <h1>ADD MY PROJECT</h1>
-                  <div>
-                    <label for="input-blog-title">Project Name</label>
-                    <input id="input-blog-title" />
-                  </div>
-                <div class="input-date">
-                  <div>
-                    <label for="input-blog-start">Start Date</label>
-                    <input type="date" id="input-blog-start" />
-                  </div>
-                  <div>
-                    <label for="input-blog-end">End Date</label>
-                    <input type ="date" id="input-blog-end" />
-                  </div>
-                </div>
-                  <div>
-                    <label for="input-blog-desc">Description</label>
-                    <textarea id="input-blog-desc"></textarea>
-                  </div>
-                  <div class="tech">
-                    <label for="tech">Technologies</label>
-                  </div>
-                      <div class="checkbox-test">
-                        <label>
-                          <input type="checkbox" name="technology" value="fa-brands fa-node fa-2xl" />
-                          <span>Node JS</span>
-                        </label>
-                        <label>
-                          <input type="checkbox" name="technology" value="fa-brands fa-react  fa-2xl">
-                          <span>React JS</span>
-                        </label>
-                      </div>
-                      <div class="checkbox-test">
-                        <label>
-                            <input type="checkbox" name="technology" value="fa-brands fa-golang  fa-2xl">
-                            <span>Golang</span>
-                          </label>
-                          <label>
-                            <input type="checkbox" name="technology" value="fa-brands fa-js  fa-2xl">
-                            <span>Javascript</span>
-                          </label>
-                      </div>
-                  <div class="submit">
-                    <button>Submit</button>
-                  </div>
-                </form>
-              </div>
+  <!-- Project -->
+  <div class="blog">
+    <div class="blog-form">
+      <div class="form-container">
+        <form onsubmit="addBlog(event)" id="card-form">
+          <h1>ADD MY PROJECT</h1>
+          <div>
+            <label for="input-blog-title">Project Name</label>
+            <input id="input-blog-title" />
+          </div>
+          <div class="input-date">
+            <div>
+              <label for="input-blog-start">Start Date</label>
+              <input type="date" id="input-blog-start" />
             </div>
-
-            <div id="test"></div>
-      <hr class="line" />
-      <div id="contents" class="blog-list">
-        <!-- dynamic content would be here -->
+            <div>
+              <label for="input-blog-end">End Date</label>
+              <input type="date" id="input-blog-end" />
+            </div>
+          </div>
+          <div>
+            <label for="input-blog-desc">Description</label>
+            <textarea id="input-blog-desc"></textarea>
+          </div>
+          <div class="tech">
+            <label for="tech">Technologies</label>
+          </div>
+          <div class="checkbox-test">
+            <label>
+              <input type="checkbox" name="technology" value="fa-brands fa-node fa-2xl" />
+              <span>Node JS</span>
+            </label>
+            <label>
+              <input type="checkbox" name="technology" value="fa-brands fa-react  fa-2xl">
+              <span>React JS</span>
+            </label>
+          </div>
+          <div class="checkbox-test">
+            <label>
+              <input type="checkbox" name="technology" value="fa-brands fa-golang  fa-2xl">
+              <span>Golang</span>
+            </label>
+            <label>
+              <input type="checkbox" name="technology" value="fa-brands fa-js  fa-2xl">
+              <span>Javascript</span>
+            </label>
+          </div>
+          <div class="submit">
+            <button>Submit</button>
+          </div>
+        </form>
       </div>
     </div>
 
-    <!-- Project -->
-    <script src="assets/js/blog.js"></script>
-    <script src="assets/js/index.js"></script>
+    <div id="test"></div>
+    <hr class="line" />
+    <div id="contents" class="blog-list">
+      <!-- dynamic content would be here -->
+    </div>
+  </div>
+
+  <!-- Project -->
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/index.js"></script>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
- let dataBlogs = [];
+let dataBlogs = [];
 
 function addBlog(event) {
   event.preventDefault();
@@ -6,9 +6,9 @@ function addBlog(event) {
   let title = document.getElementById("input-blog-title").value;
   let desc = document.getElementById("input-blog-desc").value;
   let technologyInput = [...document.querySelectorAll("input[name='technology']:checked")];
-  
-  let technology = technologyInput.map(item=>item.value)
-  
+
+  let technology = technologyInput.map(item => item.value)
+
   let durationTime = getDurationTime();
 
   let dataBlog = {
@@ -17,7 +17,7 @@ function addBlog(event) {
     technology,
     durationTime
   };
-  
+
   dataBlogs.push(dataBlog);
 
   // console.log(dataBlogs);
@@ -46,7 +46,7 @@ function renderBlog() {
         ${dataBlogs[index].desc}
         </p>
         <div class="technology">
-        ${dataBlogs[index].technology.map((item)=>`<i class='${item}'></i>`).join(" ")}
+        ${dataBlogs[index].technology.map((item) => `<i class='${item}'></i>`).join(" ")}
         </div>
         <div class="btn-group">
           <button class="button">Edit</button>
@@ -59,7 +59,7 @@ function renderBlog() {
   }
 }
 
-function getDurationTime(){
+function getDurationTime() {
 
   let dateStart = document.getElementById("input-blog-start").value;
   let dateEnd = document.getElementById("input-blog-end").value;
@@ -76,14 +76,14 @@ function getDurationTime(){
   let durationMonth = Math.floor(
     durationTime / (milisecond * secondInHour * hourInDay * dayInMonth)
   );
-  
+
   let durationDay = Math.floor(
     durationTime / (milisecond * secondInHour * hourInDay)
   );
 
-    if (durationMonth > 0){
+  if (durationMonth > 0) {
     return `${durationMonth} bulan`;
-  } else if(durationDay > 0) {
+  } else if (durationDay > 0) {
     return `${durationDay} hari`;
   }
 }

@@ -2,6 +2,7 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
+
 body {
   background-color: #e3e7eb;
   font-family: "Poppins";
@@ -53,6 +54,7 @@ nav .right {
   padding: 10px 25px;
   border-radius: 10px;
 }
+
 nav .right a {
   text-decoration: none;
   color: white;
@@ -141,7 +143,8 @@ form div button {
     display: table;
     width: 50%;
     padding-top: 9px;
-    > * {
+
+    >* {
       display: table-cell;
     }
   }
@@ -164,6 +167,7 @@ form div button {
 .tech {
   margin-bottom: 10px;
 }
+
 .checkbox-test {
   display: flex;
   margin-left: -20px;
@@ -184,11 +188,8 @@ form div button {
 input {
   margin-right: 10px;
 }
-/* Form End */
 
-.container {
-  display: flex;
-}
+/* Form End */
 
 .blog-list {
   margin-top: 2px;
@@ -227,6 +228,7 @@ input {
 .container .card a {
   color: #111727;
 }
+
 .container .card p {
   text-align: justify;
   word-wrap: break-word;
@@ -234,9 +236,11 @@ input {
   margin-top: -10px;
   padding-bottom: 20px;
 }
+
 .blog .blog-list .blog-list-item .blog-content {
   padding-left: 20px;
 }
+
 .detail-blog-content {
   font-weight: 300;
   font-size: 12px;
@@ -291,6 +295,7 @@ input {
     padding: 10px 10px;
     border-radius: 10px;
   }
+
   .hamburger-items .contact {
     text-decoration: none;
     color: white;
