@@ -1,52 +1,52 @@
-let dataBlogs = [];
+let dataProjects = [];
 
-function addBlog(event) {
+function addProject(event) {
   event.preventDefault();
 
-  let title = document.getElementById("input-blog-title").value;
-  let desc = document.getElementById("input-blog-desc").value;
+  let title = document.getElementById("input-project-title").value;
+  let desc = document.getElementById("input-project-desc").value;
   let technologyInput = [...document.querySelectorAll("input[name='technology']:checked")];
 
   let technology = technologyInput.map(item => item.value)
 
   let durationTime = getDurationTime();
 
-  let dataBlog = {
+  let dataProject = {
     title,
     desc,
     technology,
     durationTime
   };
 
-  dataBlogs.push(dataBlog);
+  dataProjects.push(dataProject);
 
-  // console.log(dataBlogs);
+  // console.log(dataProjects);
 
-  renderBlog();
+  renderProject();
 
 }
 
-function renderBlog() {
+function renderProject() {
   document.getElementById("contents").innerHTML = "";
 
-  for (let index = 0; index < dataBlogs.length; index++) {
+  for (let index = 0; index < dataProjects.length; index++) {
 
     document.getElementById("contents").innerHTML += `
     <div class="container">
     <div class="card">
         <img src="assets/img/blog-img.png">
-        <div class="blog-content">
+        <div class="project-content">
         <h1 id"title-h1">
-        <a href="projectDetail.html?id=${index}" target="_blank return false;">${dataBlogs[index].title}</a>
+        <a href="projectDetail.html?id=${index}" target="_blank return false;">${dataProjects[index].title}</a>
         </h1>
-        <div class="detail-blog-content">
-        <p>durasi : ${dataBlogs[index].durationTime}</p>
+        <div class="detail-project-content">
+        <p>durasi : ${dataProjects[index].durationTime}</p>
         </div>
         <p>
-        ${dataBlogs[index].desc}
+        ${dataProjects[index].desc}
         </p>
         <div class="technology">
-        ${dataBlogs[index].technology.map((item) => `<i class='${item}'></i>`).join(" ")}
+        ${dataProjects[index].technology.map((item) => `<i class='${item}'></i>`).join(" ")}
         </div>
         <div class="btn-group">
           <button class="button">Edit</button>
@@ -61,8 +61,8 @@ function renderBlog() {
 
 function getDurationTime() {
 
-  let dateStart = document.getElementById("input-blog-start").value;
-  let dateEnd = document.getElementById("input-blog-end").value;
+  let dateStart = document.getElementById("input-project-start").value;
+  let dateEnd = document.getElementById("input-project-end").value;
   let inputStartDate = new Date(dateStart);
   let inputEndDate = new Date(dateEnd);
 

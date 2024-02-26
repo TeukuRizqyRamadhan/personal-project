@@ -1,6 +1,3 @@
-// function openHamburger(){
-
-// }
 let isHamburgerOpen = false
 const openHamburger = () => {
     let hamburgerItemsElement = document.getElementById("hamburger-items")
