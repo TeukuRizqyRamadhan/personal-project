@@ -63,6 +63,19 @@ nav .right a {
 
 /* Navbar End */
 
+.hamburger-items {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: tomato;
+}
+
+.hamburger-items a {
+    display: none;
+    justify-content: center;
+    text-decoration: none;
+}
+
 .container h1 {
     text-align: center;
     margin-top: 50px;
@@ -107,4 +120,80 @@ nav .right a {
     margin-right: 2em;
     display: flex;
     justify-content: end;
+}
+
+@media screen and (max-width: 700px) {
+    nav ul li a {
+        display: none;
+    }
+
+    nav .right {
+        display: none;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    .hamburger-items {
+        margin-top: 1em;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #e3e7eb;
+    }
+
+    .hamburger-items a {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+    }
+
+    .hamburger-items .contact {
+        background-color: #111727;
+        padding: 10px 10px;
+        border-radius: 10px;
+    }
+
+    .hamburger-items .contact {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+    }
+
+    .hamburger-items .active {
+        font-weight: 1000;
+        color: black;
+    }
+
+    .container-card {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .container-card .card {
+        display: flex;
+        width: 70%;
+        height: 100%;
+        box-shadow: 5px 5px 15px #ccc;
+        border-radius: 10px;
+        /* background-color: green; */
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+    }
+
+    .card img {
+        width: 70%;
+        border-radius: 5px;
+        padding-top: 10px;
+        margin: auto;
+    }
+
+    .card .desc-testi {
+        padding-top: 10px;
+    }
 }

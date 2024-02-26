@@ -1,5 +1,4 @@
 class Testimonial {
-    // properties
     constructor(image, desc, name) {
         this.image = image;
         this.desc = desc;
@@ -11,15 +10,15 @@ class TestimonialCard extends Testimonial {
     get cardHtml() {
         return `<div class="card">
         <img src="${this.image}">
-            <div class="content-testi">
+        <div class="content-testi">
             <div class="desc-testi">
-            <p>"${this.desc}"</p>
+                <i>"${this.desc}"</i>
             </div>
             <div class="name-testi">
-             <p>- ${this.name}</p>
-           </div>
+                <p>- ${this.name}</p>
+            </div>
         </div>
-    </div>`;
+    </div>`
     }
 }
 
@@ -41,7 +40,7 @@ const testimonials = [
     ),
 ];
 
-let htmlInner = "";
+let htmlInner = ""
 
 for (let index = 0; index < testimonials.length; index++) {
     htmlInner += testimonials[index].cardHtml;

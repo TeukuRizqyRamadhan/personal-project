@@ -78,17 +78,17 @@ nav .right a {
 
 /* Form Start */
 
-.blog-form {
+.project-form {
   padding: 50px 0;
   display: flex;
   justify-content: center;
 }
 
-.blog-form .form-container {
+.project-form .form-container {
   width: 500px;
 }
 
-.blog-form .form-container h1 {
+.project-form .form-container h1 {
   text-align: center;
   margin-bottom: 40px;
 }
@@ -99,7 +99,7 @@ nav .right a {
   gap: 1px;
 }
 
-.blog-form form textarea {
+.project-form form textarea {
   height: 100px;
   resize: none;
 }
@@ -123,7 +123,7 @@ form div button {
   justify-content: end;
 }
 
-.blog-form form textarea {
+.project-form form textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -150,7 +150,7 @@ form div button {
   }
 }
 
-.blog-form form input {
+.project-form form input {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -160,7 +160,7 @@ form div button {
   border-radius: 8px;
 }
 
-.blog-form form input[type="checkbox"] {
+.project-form form input[type="checkbox"] {
   width: 50px;
 }
 
@@ -191,7 +191,7 @@ input {
 
 /* Form End */
 
-.blog-list {
+.project-list {
   margin-top: 2px;
   margin-bottom: 80px;
   display: flex;
@@ -237,11 +237,11 @@ input {
   padding-bottom: 20px;
 }
 
-.blog .blog-list .blog-list-item .blog-content {
+.project .project-list .project-list-item .project-content {
   padding-left: 20px;
 }
 
-.detail-blog-content {
+.detail-project-content {
   font-weight: 300;
   font-size: 12px;
   line-height: 20px;
@@ -319,20 +319,21 @@ input {
     flex-wrap: wrap;
   }
 
-  .blog-list {
+  .project-list {
     /* margin-top: 2px;
         margin-bottom: 80px; */
-    margin: auto 15px;
+    /* margin: auto 15px; */
+    margin: auto;
     padding-top: 10px;
     display: flex;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     /* background-color: red; */
-    width: 100%;
+    width: 20em;
   }
 
-  .detail-blog-content {
+  .detail-project-content {
     font-weight: 300;
     font-size: 12px;
     line-height: 20px;
@@ -352,6 +353,7 @@ input {
     border: none;
     border-radius: 5px;
     color: white;
+    margin-bottom: 2em;
   }
 
   .btn-group button {
@@ -362,23 +364,30 @@ input {
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
-    width: 180px;
+    width: 100%;
   }
 
   .container .card {
     width: 100%;
-    height: 310px;
-    padding: 5px;
+    height: 100%;
+    padding: 0;
     box-shadow: 5px 5px 15px #ccc;
     border-radius: 10px;
     /* background-color: green; */
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 0;
   }
 
-  .container .card .blog-content {
-    padding: 5px;
+  .container .card img {
+    width: 95%;
+    margin: auto;
+    padding-top: 10px;
+    border-radius: 5px;
+  }
+
+  .container .card .project-content {
+    padding: 10px;
   }
 
   .container .card a {
