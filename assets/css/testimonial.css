@@ -81,6 +81,24 @@ nav .right a {
     margin-top: 50px;
 }
 
+.container-rating {
+    width: 100%;
+    /* background-color: red; */
+}
+
+.container-rating h2,
+.rating {
+    text-align: center;
+}
+
+.rating .rating-btn {
+    color: white;
+    background-color: #111727;
+    border: none;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 .container-card {
     margin-bottom: 25px;
     display: flex;

@@ -15,7 +15,7 @@ class TestimonialCard extends Testimonial {
                 <i>"${this.desc}"</i>
             </div>
             <div class="name-testi">
-                <p>- ${this.name}</p>
+                <p>-NPM ${this.name}</p>
             </div>
         </div>
     </div>`
