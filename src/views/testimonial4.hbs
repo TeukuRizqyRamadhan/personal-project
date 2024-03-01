@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial</title>
+    <link rel="stylesheet" href="assets/css/testimonial.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/2a19752420.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="left">
+            <ul>
+                <img src="assets/img/brandred.png" alt="logo-dumbways">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="project.html">My Project</a>
+                </li>
+                <li>
+                    <a href="testimonial.html" class="active">Testimonial</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <a href="contact-me.html">Contact Me</a>
+        </div>
+        <div class="hamburger">
+            <button style="background-color: transparent; border: none; cursor: pointer;" onclick="openHamburger()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="hamburger-items" id="hamburger-items">
+        <a href="index.html">Home</a>
+        <a href="project.html">My Project</a>
+        <a href="testimonial.html" class="active">Testimonial</a>
+        <a href="contact-me.html" class="contact">Contact Me</a>
+    </div>
+
+    <!-- Navbar -->
+    <div class="container">
+        <h1>My Testimonial</h1>
+        <div class="container-rating">
+            <h2>Rating by Star</h2>
+            <div class="rating">
+                <button class="rating-btn" data-rate="0">All</button>
+                <button class="rating-btn" data-rate="3">1 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-btn" data-rate="2">2 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-btn" data-rate="3">3 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-btn" data-rate="4">4 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-btn" data-rate="5">5 <i class="fa-solid fa-star"></i></button>
+            </div>
+        </div>
+        <div class="container-card">
+            <div class="card">
+                <img src="https://img001.prntscr.com/file/img001/7c3rRAA7Q_CYU_PslOOtCg.png">
+                <div class="content-testi">
+                    <div class="desc-testi">
+                        <i>"Mantap sekali jasanya!"</i>
+                    </div>
+                    <div class="name-testi">
+                        <p>- Teuku Rizqy Ramadhan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="assets/js/testimonial4.js"></script>
+<script src="assets/js/hamburger.js"></script>
+
+</html>
