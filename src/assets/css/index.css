@@ -49,6 +49,7 @@ nav .right {
   padding: 10px 25px;
   border-radius: 10px;
 }
+
 nav .right a {
   text-decoration: none;
   color: white;
@@ -120,6 +121,7 @@ nav .right a {
   justify-content: space-between;
   margin-top: 50px;
 }
+
 .container .kiri .sosmed img {
   width: 36px;
   height: 36px;
@@ -148,6 +150,7 @@ nav .right a {
   text-align: center;
   font-size: large;
 }
+
 .container .kanan .card p {
   text-align: center;
   font-size: small;
@@ -191,6 +194,7 @@ nav .right a {
     padding: 10px 10px;
     border-radius: 10px;
   }
+
   .hamburger-items .contact {
     text-decoration: none;
     color: white;
@@ -221,6 +225,7 @@ nav .right a {
     justify-content: space-between;
     margin: 1em auto;
   }
+
   .container .kiri .sosmed img {
     width: 36px;
     height: 36px;

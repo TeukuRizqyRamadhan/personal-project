@@ -1,114 +1,100 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Project</title>
-  <link rel="stylesheet" href="assets/css/project.css">
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <script src="https://kit.fontawesome.com/77b392a698.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create post blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://kit.fontawesome.com/2a19752420.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background-color:
+                orangered !important;
+        }
+
+        .btn-primary:hover {
+            background-color: orangered !important;
+        }
+
+        .active {
+            color: orangered !important;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-
-  <!-- Navbar -->
-  <nav>
-    <div class="left">
-      <ul>
-        <img src="assets/img/brandred.png" alt="logo-dumbways">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="project" class="active">My Project</a>
-        </li>
-        <li>
-          <a href="testimonial">Testimonial</a>
-        </li>
-      </ul>
-    </div>
-    <div class="right">
-      <a href="contact">Contact Me</a>
-    </div>
-    <div class="hamburger">
-      <button style="background-color: transparent; border: none; cursor: pointer;" onclick="openHamburger()">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </nav>
-  <div class="hamburger-items" id="hamburger-items">
-    <a href="/">Home</a>
-    <a href="project" class="active">My Project</a>
-    <a href="testimonial">Testimonial</a>
-    <a href="contact" class="contact">Contact Me</a>
-  </div>
-
-  <!-- Navbar -->
-
-  <!-- Project -->
-  <div class="project">
-    <div class="project-form">
-      <div class="form-container">
-        <form onsubmit="addProject(event)" id="card-form">
-          <h1>ADD MY PROJECT</h1>
-          <div>
-            <label for="input-project-title">Project Name</label>
-            <input id="input-project-title" />
-          </div>
-          <div class="input-date">
-            <div>
-              <label for="input-project-start">Start Date</label>
-              <input type="date" id="input-project-start" />
+    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3">
+        <div class="container-fluid">
+            <img src="assets/img/brandred.png" alt="logo-dumbways" style="width: 50px;" class="ms-3 me-5">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link me-3 active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="add-project">Add Project</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <a class="btn btn-dumbways me-3" href="contact" role="button">Contact Me</a>
+                </form>
             </div>
-            <div>
-              <label for="input-project-end">End Date</label>
-              <input type="date" id="input-project-end" />
+        </div>
+    </nav>
+
+    <div class="container d-flex flex-column mt-5">
+        {{!-- <div class="w-100 d-flex justify-content-end mb-3">
+            <a href="add-blog" class="btn btn-primary">Add New Blog</a>
+        </div> --}}
+        <div id="contents">
+            {{#each data}}
+            <div class="card mb-3 w-100">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="../assets/img/blog-img.png" class="img-fluid rounded-start" alt="..." />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/project-detail/{{@index}}" target="_blank">{{this.title}}</a>
+                            </h5>
+                            <p>
+                                Start Date: {{this.start}} | End Date: {{this.end}}
+                            </p>
+                            <p class="card-text">{{this.content}}</p>
+                            <i class="mt-5 {{this.technology}}"></i>
+                            <p class="mt-3 card-text"><small class="text-body-secondary">1
+                                    seconds ago
+                                </small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 d-flex mt-1" style="height: fit-content;">
+                        <a class="btn btn-secondary" href="/edit-project/{{@index}}">Edit post</a>
+                        <a class="btn btn-primary" href="/delete-project/{{@index}}">Delete post</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div>
-            <label for="input-project-desc">Description</label>
-            <textarea id="input-project-desc"></textarea>
-          </div>
-          <div class="tech">
-            <label for="tech">Technologies</label>
-          </div>
-          <div class="checkbox-test">
-            <label>
-              <input type="checkbox" name="technology" value="fa-brands fa-node fa-2xl" />
-              <span>Node JS</span>
-            </label>
-            <label>
-              <input type="checkbox" name="technology" value="fa-brands fa-react  fa-2xl">
-              <span>React JS</span>
-            </label>
-          </div>
-          <div class="checkbox-test">
-            <label>
-              <input type="checkbox" name="technology" value="fa-brands fa-golang  fa-2xl">
-              <span>Golang</span>
-            </label>
-            <label>
-              <input type="checkbox" name="technology" value="fa-brands fa-js  fa-2xl">
-              <span>Javascript</span>
-            </label>
-          </div>
-          <div class="submit">
-            <button>Submit</button>
-          </div>
-        </form>
-      </div>
+            {{/each}}
+        </div>
     </div>
 
-    <div id="test"></div>
-    <hr class="line" />
-    <div id="contents" class="project-list">
-      <!-- dynamic content would be here -->
-    </div>
-  </div>
-
-  <!-- Project -->
-  <script src="assets/js/project.js"></script>
-  <script src="assets/js/hamburger.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

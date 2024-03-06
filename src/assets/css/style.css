@@ -1,0 +1,14 @@
+.btn-dumbways {
+    background-color: #EC4D37;
+    color: white;
+}
+
+.btn-dumbways:hover {
+    color: #EC4D37;
+    background-color: white;
+    border: 1px solid #EC4D37;
+}
+
+textarea {
+    resize: none;
+}
