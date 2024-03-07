@@ -42,22 +42,23 @@
 
     <div class="container-lg">
         <h1 class="text-center mt-5">EDIT PROJECT</h1>
-        <form class="row g-3" method="post" action="/edit-project/{{id}}">
+        <form class="row g-3" method="post" action="/edit-project/{{data.id}}">
             <div class="col-12">
                 <label for="input-project-title" class="form-label">Project Name</label>
-                <input type="text" class="form-control" id="input-project-title" name="title" value="{{title}}">
+                <input type="text" class="form-control" id="input-project-title" name="title" value="{{data.title}}">
             </div>
             <div class="col-md-6">
                 <label for="input-project-start" class="form-label">Start Date</label>
-                <input type="date" class="form-control" id="input-project-start">
+                <input type="date" class="form-control" id="input-project-start" name="start" value="{{data.start}}">
             </div>
-            <div class="col-md-6">
+            <div class=" col-md-6">
                 <label for="input-project-end" class="form-label">End Date</label>
-                <input type="date" class="form-control" id="input-project-end">
+                <input type="date" class="form-control" id="input-project-end" name="end" value="{{data.end}}">
             </div>
             <div class="">
-                <label for="input-project-desc" class="form-label">Description</label>
-                <textarea class="form-control" id="input-project-desc" rows="3" name="content">{{content}}</textarea>
+                <label for=" input-project-desc" class="form-label">Description</label>
+                <textarea class="form-control" id="input-project-desc" rows="3"
+                    name="content">{{data.content}}</textarea>
             </div>
             <label for="tech">Technologies</label>
             <div class="col-2">

@@ -42,12 +42,11 @@
     <div class="container d-flex flex-column">
         <div class="blog-detail">
             <div class="blog-detail-container">
-                <h1>{{this.id}}</h1>
-                <h1>{{this.title}}</h1>
-                <div class="author">12 Jul 2021 22:30 WIB | Ichsan Emrald Alamsyah</div>
-                <img src="/assets/img/blog-img.png" alt="detail" />
+                <h1>{{data.title}}</h1>
+                <div class="author">{{data.createdAt}} | {{data.author}}</div>
+                <img src="{{data.image}}" alt="detail" />
                 <p>
-                    {{this.content}}
+                    {{data.content}}
                 </p>
             </div>
         </div>

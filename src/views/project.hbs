@@ -65,12 +65,12 @@
             <div class="card mb-3 w-100">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="../assets/img/blog-img.png" class="img-fluid rounded-start" alt="..." />
+                        <img src="{{this.image}}" class="img-fluid rounded-start" alt="..." />
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="/project-detail/{{@index}}" target="_blank">{{this.title}}</a>
+                                <a href="/project-detail/{{this.id}}" target="_blank">{{this.title}}</a>
                             </h5>
                             <p>
                                 Start Date: {{this.start}} | End Date: {{this.end}}
@@ -83,8 +83,8 @@
                         </div>
                     </div>
                     <div class="col-md-2 d-flex mt-1" style="height: fit-content;">
-                        <a class="btn btn-secondary" href="/edit-project/{{@index}}">Edit post</a>
-                        <a class="btn btn-primary" href="/delete-project/{{@index}}">Delete post</a>
+                        <a class="btn btn-secondary" href="/edit-project/{{this.id}}">Edit post</a>
+                        <a class="btn btn-primary" href="/delete-project/{{this.id}}">Delete post</a>
                     </div>
                 </div>
             </div>

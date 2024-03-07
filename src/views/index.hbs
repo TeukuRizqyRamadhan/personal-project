@@ -36,18 +36,19 @@
     <h1 class="text-center mt-5">MY PROJECT</h1>
     <div class="container-fluid  d-flex justify-content-center align-items-center mt-5">
         <div class="row row-cols-1 row-cols-md-3 g-5">
+            {{#each projects}}
             <div class="col">
                 <div class="card h-100" style="width: 18rem;">
-                    <img src="../assets/img/blog-img.png" class="card-img-top" alt="...">
+                    <img src="{{this.image}}" class="text-center img-fluidcard-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Dumbways 2021</h5>
-                        <p class="card-text"><small class="text-body-secondary">Durasi :</small></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's
-                            content.</p>
+                        <p class="card-text"><small class="text-body-secondary">Start Date : {{this.start_date}}</small>
+                        </p>
+                        <p class="card-text"><small class="text-body-secondary">End Date : {{this.end_date}}</small></p>
+                        <p class="card-text">{{this.description}}</p>
+                        <p class="card-text">{{this.name}}</p>
                         <div class="technology">
-                            Teknologi
+                            {{this.technologies}}
                         </div>
                     </div>
                     <div class="card-body">
@@ -56,40 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="../assets/img/blog-img.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Dumbways 2021</h5>
-                        <p class="card-text"><small class="text-body-secondary">Durasi :</small></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's
-                            content.</p>
-                    </div>
-                    <div class="card-body">
-                        <a class="btn btn-primary" href="#" role="button">Edit</a>
-                        <a class="btn btn-primary" href="#" role="button">Delete</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="../assets/img/blog-img.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Dumbways 2021</h5>
-                        <p class="card-text"><small class="text-body-secondary">Durasi :</small></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's
-                            content.</p>
-                    </div>
-                    <div class="card-body">
-                        <a class="btn btn-primary" href="#" role="button">Edit</a>
-                        <a class="btn btn-primary" href="#" role="button">Delete</a>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
 
