@@ -3,19 +3,15 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
-    await queryInterface.bulkInsert('Users', [{
-      name: 'John Doe',
-      email: 'Jasdsadsa@gmail.com',
-      password: '12321321e',
+
+    await queryInterface.bulkInsert('projects', [{
+      title: 'John Doe',
+      image: 'https://sequelize.org/img/logo.svg',
+      content: 'wkwkwkjancuk',
+      technologyNode: 'fa-brands fa-node fa-2xl',
+      technologyReact: 'fa-brands fa-react fa-2xl',
+      technologyGolang: 'fa-brands fa-golang fa-2xl',
+      technologyJavascript: 'fa-brands fa-js fa-2xl',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

@@ -12,3 +12,17 @@
 textarea {
     resize: none;
 }
+
+.btn-primary {
+    background-color:
+        orangered !important;
+}
+
+.btn-primary:hover {
+    background-color: orangered !important;
+}
+
+.active {
+    color: orangered !important;
+    font-weight: bold;
+}

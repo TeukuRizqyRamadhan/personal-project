@@ -8,7 +8,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="https://kit.fontawesome.com/2a19752420.js" crossorigin="anonymous"></script>
-    <style>
+    {{!-- <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
         * {
@@ -28,7 +28,7 @@
             color: orangered !important;
             font-weight: bold;
         }
-    </style>
+    </style> --}}
 </head>
 
 <body>
@@ -50,6 +50,24 @@
                     </li>
                 </ul>
                 <form class="d-flex">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        {{#if isLogin}}
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold active text-danger">Hello,
+                                {{user}}</a>
+                        </li>
+                        <li class="nav-item ms-3 me-4">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                        {{else}}
+                        <li class="nav-item">
+                            <a class="nav-link me-3" aria-current="page" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" aria-current="page" href="/register">Register</a>
+                        </li>
+                        {{/if}}
+                    </ul>
                     <a class="btn btn-dumbways me-3" href="contact" role="button">Contact Me</a>
                 </form>
             </div>

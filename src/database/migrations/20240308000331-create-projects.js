@@ -18,6 +18,9 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
+      technology: { // Menambah kolom technology dengan tipe STRING
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

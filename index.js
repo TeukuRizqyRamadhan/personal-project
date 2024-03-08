@@ -1,12 +1,35 @@
 import express from 'express';
+import { Sequelize, QueryTypes } from "sequelize";
+import connection from "./src/config/connection.js";
+import bcrypt from 'bcrypt';
+import session from 'express-session'
+import flash from 'express-flash';
 const app = express()
 const port = 3000
+
+const sequelizeConfig = new Sequelize(connection.development)
 
 app.set("view engine", "hbs")
 app.set("views", "src/views")
 
 app.use("/assets", express.static("src/assets"))
 app.use(express.urlencoded({ extended: false }));
+
+app.use(flash());
+
+app.use(
+    session({
+        cookie: {
+            maxAge: 1000 * 60 * 60,
+            httpOnly: true,
+            secure: false, // https => http
+        },
+        store: new session.MemoryStore(),
+        saveUninitialized: true,
+        resave: false,
+        secret: "pinjamduluseratus",
+    })
+);
 // request = dari client ke server
 // response = dari server ke client
 app.get("/", home);
@@ -17,98 +40,242 @@ app.post("/add-project", handleAddProject);
 app.get("/delete-project/:id", handleDeleteProject);
 app.get("/edit-project/:id", editProject);
 app.post("/edit-project/:id", handleEditProject);
-// app.get("/edit-blog/:id");
-// app.post("/edit-blog/:id", a);
-
-// function a(req, res) {
-//   const { id } = req.params;
-//   const { title, content } = req.body;
-
-//   datas.splice(id, 1, { title, content });
-
-//   res.redirect("/blog");
-// }
-
 app.get("/contact", contact);
 app.get("/testimonial", testimonial);
+app.get("/register", formRegister);
+app.post("/register", register);
+app.get("/login", formLogin);
+app.post("/login", login);
+app.get("/logout", logout);
 
-const datas = [];
 
 function home(req, res) {
-    res.render("index");
+
+    res.render("index", {
+        isLogin: req.session.isLogin,
+        user: req.session.user,
+    });
 }
 
-function project(req, res) {
-    res.render("project", { data: datas });
+async function project(req, res) {
+    try {
+        const QueryName = "SELECT * FROM projects ORDER BY id DESC"
+
+        const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
+
+        const obj = project.map((data) => {
+            return {
+                ...data,
+                author: "Putri Maharani Chan"
+            }
+        })
+
+        res.render("project", {
+            data: obj,
+            isLogin: req.session.isLogin,
+            user: req.session.user
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function contact(req, res) {
-    res.render("contact-me");
+    res.render("contact-me", {
+        isLogin: req.session.isLogin,
+        user: req.session.user
+    });
 }
 
-function projectDetail(req, res) {
-    const id = req.params.id;
+async function projectDetail(req, res) {
+    try {
+        const id = req.params.id;
+        const QueryName = `SELECT * FROM projects where id=${id}`
 
-    if (id >= 0 && id < datas.length) {
-        const projectData = datas[id];
-        res.render("project-detail", { title: projectData.title, content: projectData.content });
-    } else {
-        res.status(404).send('Project not found');
+        const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
+        const obj = project.map((data) => {
+            return {
+                ...data,
+                author: "Putri Maharani Chan"
+            }
+        })
+        res.render("project-detail", {
+            data: obj[0],
+            isLogin: req.session.isLogin,
+            user: req.session.user
+        });
+    } catch (error) {
+        console.log(error);
     }
 }
 
 
 function addProject(req, res) {
-    res.render("add-project");
+    res.render("add-project", {
+        isLogin: req.session.isLogin,
+        user: req.session.user,
+    });
 }
 
 function testimonial(req, res) {
     res.render("testimonial");
 }
 
-function handleAddProject(req, res) {
-    // const titleData = req.body.title;
-    // const content = req.body.content;
+function formRegister(req, res) {
 
-    const { title, content, start, end, technology } = req.body;
-
-    datas.push({ title, content, start, end, technology });
-
-    res.redirect("/project");
+    res.render('register')
 }
 
-function handleDeleteProject(req, res) {
-    const { id } = req.params;
+async function register(req, res) {
+    try {
+        const { name, email, password } = req.body
 
-    datas.splice(id, 1);
+        bcrypt.hash(password, 10, async function (err, dataHash) {
 
-    res.redirect("/project");
-}
+            if (err) {
+                res.redirect("/register");
+            } else {
+                await sequelizeConfig.query(`INSERT INTO users(
+                    name, email, password, "createdAt", "updatedAt")
+                    VALUES ('${name}','${email}','${dataHash}', NOW(), NOW())`)
+                res.redirect("/");
 
-function editProject(req, res) {
-    const id = req.params.id;
-
-    // Pastikan ID valid dan ada dalam data proyek
-    if (id >= 0 && id < datas.length) {
-        const projectData = datas[id];
-        res.render("edit-project", { id, title: projectData.title, content: projectData.content });
-    } else {
-        // Handle kasus ID tidak valid
-        res.status(404).send('Project not found');
+            }
+        })
+    } catch (error) {
+        console.log(error)
     }
 }
 
-function handleEditProject(req, res) {
-    const id = req.params.id;
+function formLogin(req, res) {
 
-    // Pastikan ID valid dan ada dalam data proyek
-    if (id >= 0 && id < datas.length) {
-        const { title, content } = req.body;
-        datas[id] = { title, content };
+    res.render('login')
+}
+
+async function login(req, res) {
+    try {
+        const { email, password } = req.body;
+        const queryName = `SELECT * FROM users WHERE email = '${email}'`
+
+        const isCheckEmail = await sequelizeConfig.query(queryName, { type: QueryTypes.SELECT })
+        if (!isCheckEmail.length) {
+            req.flash('danger', 'Email has not been registered')
+            return res.redirect("/login")
+
+        }
+        await bcrypt.compare(
+            password,
+            isCheckEmail[0].password,
+            function (err, result) {
+                if (!result) {
+                    req.flash("danger", "Password wrong");
+                    return res.redirect("/login");
+                } else {
+                    req.session.isLogin = true;
+                    req.session.user = isCheckEmail[0].name;
+                    req.flash("succes", "login success");
+
+                    return res.redirect("/");
+                }
+            }
+        );
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// ...
+
+
+// ...
+
+function logout(req, res) {
+    req.session.destroy((err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/login");
+        }
+    });
+}
+
+async function handleAddProject(req, res) {
+    try {
+        // const titleData = req.body.title;
+        // const content = req.body.content;
+        const { title, content, start, end, technology } = req.body;
+        const image = "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a"
+        const QueryName = `INSERT INTO projects(
+        title, image, content, technology, "createdAt", "updatedAt")
+        VALUES ('${title}','${image}','${content}', '${technology}', NOW(), NOW())`;
+
+        await sequelizeConfig.query(QueryName)
+
         res.redirect("/project");
-    } else {
-        // Handle kasus ID tidak valid
-        res.status(404).send('Project not found');
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function handleDeleteProject(req, res) {
+    try {
+        const { id } = req.params;
+        const QueryName = `DELETE FROM projects WHERE id = ${id}`;
+
+        await sequelizeConfig.query(QueryName)
+
+        res.redirect("/project");
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function editProject(req, res) {
+    try {
+        const id = req.params.id;
+        const QueryName = `SELECT * FROM projects where id=${id}`
+
+        const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
+        const obj = project.map((data) => {
+            return {
+                ...data
+            }
+        })
+        console.log(obj);
+
+
+        res.render("edit-project", {
+            data: obj[0],
+            isLogin: req.session.isLogin,
+            user: req.session.user
+        });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function handleEditProject(req, res) {
+    try {
+        const { id } = req.params;
+        const { title, content, start, end, technology } = req.body;
+
+        // Jika Anda ingin memperbarui data selain judul dan konten, sesuaikan dengan kebutuhan
+        const QueryName = `
+            UPDATE projects 
+            SET 
+                title = '${title}',
+                content = '${content}',
+                technology = '${technology}',
+                "updatedAt" = NOW()
+            WHERE 
+                id = ${id}
+        `;
+
+        await sequelizeConfig.query(QueryName);
+
+        res.redirect("/project");
+    } catch (error) {
+        console.log(error);
     }
 }
 
