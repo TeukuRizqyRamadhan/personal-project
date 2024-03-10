@@ -203,14 +203,18 @@ async function handleAddProject(req, res) {
     try {
         // const titleData = req.body.title;
         // const content = req.body.content;
-        const { title, content, start, end, technology } = req.body;
+        const { title, content, startDate, endDate, node, react, golang, js } = req.body;
+        const is_node = node ? true : false;
+        const is_react = react ? true : false;
+        const is_golang = golang ? true : false;
+        const is_js = js ? true : false;
         const image = "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a"
         const QueryName = `INSERT INTO projects(
-        title, image, content, technology, "createdAt", "updatedAt")
-        VALUES ('${title}','${image}','${content}', '${technology}', NOW(), NOW())`;
+            title, image, content, node, react, golang, js, "createdAt", "updatedAt")
+            VALUES ('${title}','${image}','${content}', '${is_node}', '${is_react}','${is_golang}','${is_js}',NOW(), NOW())`;
+
 
         await sequelizeConfig.query(QueryName)
-
         res.redirect("/project");
     } catch (error) {
         console.log(error)
@@ -257,7 +261,11 @@ async function editProject(req, res) {
 async function handleEditProject(req, res) {
     try {
         const { id } = req.params;
-        const { title, content, start, end, technology } = req.body;
+        const { title, content, start, end, node, react, golang, js } = req.body;
+        const is_node = node ? true : false;
+        const is_react = react ? true : false;
+        const is_golang = golang ? true : false;
+        const is_js = js ? true : false;
 
         // Jika Anda ingin memperbarui data selain judul dan konten, sesuaikan dengan kebutuhan
         const QueryName = `
@@ -265,7 +273,10 @@ async function handleEditProject(req, res) {
             SET 
                 title = '${title}',
                 content = '${content}',
-                technology = '${technology}',
+                node = '${is_node}',
+                react = '${is_react}',
+                golang = '${is_golang}',
+                js = '${is_js}',
                 "updatedAt" = NOW()
             WHERE 
                 id = ${id}

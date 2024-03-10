@@ -5,16 +5,19 @@ module.exports = {
   async up(queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert('projects', [{
-      title: 'John Doe',
-      image: 'https://sequelize.org/img/logo.svg',
-      content: 'wkwkwkjancuk',
-      technologyNode: 'fa-brands fa-node fa-2xl',
-      technologyReact: 'fa-brands fa-react fa-2xl',
-      technologyGolang: 'fa-brands fa-golang fa-2xl',
-      technologyJavascript: 'fa-brands fa-js fa-2xl',
+      title: "dumbways",
+      start: new Date("2024-01-22"),
+      end: new Date("2024-01-25"),
+      image: "https://github.com/images/modules/search/dark.png",
+      content: "cihuy",
+      node: true,
+      react: true,
+      golang: true,
+      js: false,
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
+
   },
 
   async down(queryInterface, Sequelize) {

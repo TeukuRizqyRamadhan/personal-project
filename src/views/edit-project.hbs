@@ -81,8 +81,8 @@
             <label for="tech">Technologies</label>
             <div class="col-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="technology"
-                        value="fa-brands fa-node fa-2xl" />
+                    <input class="form-check-input" type="checkbox" name="node" value="node" {{#if data.node}} checked
+                        {{/if}} />
                     <label class="form-check-label" for="gridCheck">
                         Node JS
                     </label>
@@ -90,8 +90,8 @@
             </div>
             <div class="col-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="technology"
-                        value="fa-brands fa-react fa-2xl" />
+                    <input class="form-check-input" type="checkbox" name="react" value="react" {{#if data.react}}
+                        checked {{/if}} />
                     <label class="form-check-label" for="gridCheck">
                         React JS
                     </label>
@@ -99,8 +99,8 @@
             </div>
             <div class="col-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="technology"
-                        value="fa-brands fa-golang fa-2xl" />
+                    <input class="form-check-input" type="checkbox" name="golang" value="golang" {{#if data.golang}}
+                        checked {{/if}} />
                     <label class="form-check-label" for="gridCheck">
                         Golang
                     </label>
@@ -108,7 +108,8 @@
             </div>
             <div class="col-6">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="technology" value="fa-react fa-js fa-2xl" />
+                    <input class="form-check-input" type="checkbox" name="js" value="js" {{#if data.js}} checked
+                        {{/if}} />
                     <label class="form-check-label" for="gridCheck">
                         Javascript
                     </label>

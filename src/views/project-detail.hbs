@@ -66,6 +66,18 @@
                 <p>
                     {{data.content}}
                 </p>
+                {{#if data.node}}
+                <i class="mt-5 me-2 "><i class="fa-brands fa-node fa-2xl"></i></i>
+                {{/if}}
+                {{#if data.react}}
+                <i class="mt-5 me-2"><i class="fa-brands fa-react fa-2xl"></i></i>
+                {{/if}}
+                {{#if data.golang}}
+                <i class="mt-5 me-2"><i class="fa-brands fa-golang fa-2xl"></i></i>
+                {{/if}}
+                {{#if data.js}}
+                <i class="mt-5 me-2 "><i class="fa-brands fa-js fa-2xl"></i></i>
+                {{/if}}
             </div>
         </div>
     </div>
