@@ -12,10 +12,10 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      start: {
+      start_date: {
         type: Sequelize.DATE
       },
-      end: {
+      end_date: {
         type: Sequelize.DATE
       },
       image: {
@@ -35,6 +35,9 @@ module.exports = {
       },
       js: {
         type: Sequelize.BOOLEAN
+      },
+      diff_date: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

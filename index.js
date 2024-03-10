@@ -199,19 +199,45 @@ function logout(req, res) {
     });
 }
 
+const getDurationTime = (start_date, end_date) => {
+    const startDateTime = new Date(start_date).getTime();
+    const endDateTime = new Date(end_date).getTime();
+    let durationTime = endDateTime - startDateTime;
+
+    let milisecond = 1000 // milisecond
+    let secondInHour = 3600 // 1 jam = 3600 detik
+    let hourInDay = 24 // 1 hari - 24 jam
+    let dayInMonth = 30 // 30 hari dalam 1 bulan
+
+    let durationMonth = Math.floor(
+        durationTime / (milisecond * secondInHour * hourInDay * dayInMonth)
+    );
+
+    let durationDay = Math.floor(
+        durationTime / (milisecond * secondInHour * hourInDay)
+    );
+
+    if (durationMonth > 0) {
+        return `${durationMonth} bulan`;
+    } else if (durationDay > 0) {
+        return `${durationDay} hari`;
+    }
+}
+
 async function handleAddProject(req, res) {
     try {
         // const titleData = req.body.title;
         // const content = req.body.content;
-        const { title, content, startDate, endDate, node, react, golang, js } = req.body;
+        const { title, content, start_date, end_date, node, react, golang, js } = req.body;
         const is_node = node ? true : false;
         const is_react = react ? true : false;
         const is_golang = golang ? true : false;
         const is_js = js ? true : false;
+        const diff_date = getDurationTime(start_date, end_date);
         const image = "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a"
         const QueryName = `INSERT INTO projects(
-            title, image, content, node, react, golang, js, "createdAt", "updatedAt")
-            VALUES ('${title}','${image}','${content}', '${is_node}', '${is_react}','${is_golang}','${is_js}',NOW(), NOW())`;
+            title, start_date, end_date, image, content, node, react, golang, js, diff_date, "createdAt", "updatedAt")
+            VALUES ('${title}','${start_date}','${end_date}','${image}','${content}', '${is_node}', '${is_react}','${is_golang}','${is_js}', '${diff_date}',NOW(), NOW())`;
 
 
         await sequelizeConfig.query(QueryName)
@@ -261,22 +287,25 @@ async function editProject(req, res) {
 async function handleEditProject(req, res) {
     try {
         const { id } = req.params;
-        const { title, content, start, end, node, react, golang, js } = req.body;
+        const { title, content, start_date, end_date, node, react, golang, js } = req.body;
         const is_node = node ? true : false;
         const is_react = react ? true : false;
         const is_golang = golang ? true : false;
         const is_js = js ? true : false;
-
+        const diff_date = getDurationTime(start_date, end_date);
         // Jika Anda ingin memperbarui data selain judul dan konten, sesuaikan dengan kebutuhan
         const QueryName = `
             UPDATE projects 
             SET 
                 title = '${title}',
+                start_date = '${start_date}',
+                end_date = '${end_date}',
                 content = '${content}',
                 node = '${is_node}',
                 react = '${is_react}',
                 golang = '${is_golang}',
                 js = '${is_js}',
+                diff_date = '${diff_date}',
                 "updatedAt" = NOW()
             WHERE 
                 id = ${id}
