@@ -66,7 +66,7 @@ async function project(req, res) {
         const obj = project.map((data) => {
             return {
                 ...data,
-                author: "Putri Maharani Chan"
+                author: "Teuku Rizqy Ramadhan"
             }
         })
 
@@ -96,7 +96,7 @@ async function projectDetail(req, res) {
         const obj = project.map((data) => {
             return {
                 ...data,
-                author: "Putri Maharani Chan"
+                author: "Teuku Rizqy Ramadhan"
             }
         })
         res.render("project-detail", {
@@ -234,7 +234,7 @@ async function handleAddProject(req, res) {
         const is_golang = golang ? true : false;
         const is_js = js ? true : false;
         const diff_date = getDurationTime(start_date, end_date);
-        const image = "https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a"
+        const image = "https://github.com/images/modules/search/dark.png"
         const QueryName = `INSERT INTO projects(
             title, start_date, end_date, image, content, node, react, golang, js, diff_date, "createdAt", "updatedAt")
             VALUES ('${title}','${start_date}','${end_date}','${image}','${content}', '${is_node}', '${is_react}','${is_golang}','${is_js}', '${diff_date}',NOW(), NOW())`;

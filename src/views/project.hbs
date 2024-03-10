@@ -46,8 +46,10 @@
                             <a class="nav-link" aria-current="page" href="/register">Register</a>
                         </li>
                         {{/if}}
+                        <li class="nav-item me-3">
+                            <a class="btn btn-dumbways me-3" href="contact" role="button">Contact Me</a>
+                        </li>
                     </ul>
-                    <a class="btn btn-dumbways me-3" href="contact" role="button">Contact Me</a>
                 </form>
             </div>
         </div>
@@ -72,7 +74,7 @@
                             <p>
                                 Start Date: {{this.start_date}} | End Date: {{this.end_date}}
                             </p>
-                            <p class="card-text">{{this.content}}</p>
+                            <p class="card-text text-truncate">{{this.content}}</p>
                             {{#if this.node}}
                             <i class="mt-5 me-2 "><i class="fa-brands fa-node fa-2xl"></i></i>
                             {{/if}}
@@ -90,10 +92,11 @@
                                 </small></p>
                         </div>
                     </div>
-                    <div class="col-md-2 d-flex mt-1" style="height: fit-content;">
-                        <a class="btn btn-secondary" href="/edit-project/{{this.id}}">Edit post</a>
-                        <a class="btn btn-primary" href="/delete-project/{{this.id}}">Delete post</a>
+                    <div class="col d-flex flex-column ms-2 mt-2 me-2 align-self-end" style="height: fit-content;">
+                        <a class="btn btn-secondary mb-2" href="/edit-project/{{this.id}}">Edit post</a>
+                        <a class="btn btn-primary mb-2" href="/delete-project/{{this.id}}">Delete post</a>
                     </div>
+
                 </div>
             </div>
             {{/each}}
