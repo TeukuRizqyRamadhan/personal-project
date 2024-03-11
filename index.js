@@ -32,6 +32,9 @@ app.use(
 );
 // request = dari client ke server
 // response = dari server ke client
+
+// Start Routing
+
 app.get("/", home);
 app.get("/project", project);
 app.get("/project-detail/:id", projectDetail);
@@ -48,6 +51,7 @@ app.get("/login", formLogin);
 app.post("/login", login);
 app.get("/logout", logout);
 
+// End Routing
 
 function home(req, res) {
 
@@ -66,7 +70,9 @@ async function project(req, res) {
         const obj = project.map((data) => {
             return {
                 ...data,
-                author: "Teuku Rizqy Ramadhan"
+                author: "Teuku Rizqy Ramadhan",
+                startDateFormatted: new Date(data.start_date).toLocaleDateString(),
+                endDateFormatted: new Date(data.end_date).toLocaleDateString()
             }
         })
 
@@ -96,7 +102,9 @@ async function projectDetail(req, res) {
         const obj = project.map((data) => {
             return {
                 ...data,
-                author: "Teuku Rizqy Ramadhan"
+                author: "Teuku Rizqy Ramadhan",
+                startDateFormatted: new Date(data.start_date).toLocaleDateString(),
+                endDateFormatted: new Date(data.end_date).toLocaleDateString()
             }
         })
         res.render("project-detail", {
