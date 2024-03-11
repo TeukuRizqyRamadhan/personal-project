@@ -4,6 +4,16 @@ body {
   margin: 0;
 }
 
+.multi-line-text-truncate {
+  overflow: hidden;
+  max-width: 400px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 20px auto;
+}
+
+
 /* Navbar Start */
 
 nav {

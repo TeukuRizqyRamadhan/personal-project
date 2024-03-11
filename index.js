@@ -53,12 +53,29 @@ app.get("/logout", logout);
 
 // End Routing
 
-function home(req, res) {
+async function home(req, res) {
+    try {
+        const QueryName = "SELECT * FROM projects ORDER BY id DESC"
 
-    res.render("index", {
-        isLogin: req.session.isLogin,
-        user: req.session.user,
-    });
+        const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
+
+        const obj = project.map((data) => {
+            return {
+                ...data,
+                author: "Teuku Rizqy Ramadhan",
+                startDateFormatted: new Date(data.start_date).toLocaleDateString(),
+                endDateFormatted: new Date(data.end_date).toLocaleDateString()
+            }
+        })
+
+        res.render("index", {
+            data: obj,
+            isLogin: req.session.isLogin,
+            user: req.session.user
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 async function project(req, res) {
