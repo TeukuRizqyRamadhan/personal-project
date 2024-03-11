@@ -254,6 +254,24 @@ async function handleAddProject(req, res) {
         // const titleData = req.body.title;
         // const content = req.body.content;
         const { title, content, start_date, end_date, node, react, golang, js } = req.body;
+        if (!title || !content) {
+            req.flash('danger', 'Input form must be filled in')
+            return res.redirect("/add-project")
+        }
+
+        if (start_date == '') {
+            req.flash('danger', 'Please input start date')
+            return res.redirect("/add-project")
+        }
+        if (end_date == '') {
+            req.flash('danger', 'Please input end date')
+            return res.redirect("/add-project")
+        }
+
+        if (end_date <= start_date) {
+            req.flash('danger', 'End Date must be after Start Date')
+            return res.redirect("/add-project")
+        }
         const is_node = node ? true : false;
         const is_react = react ? true : false;
         const is_golang = golang ? true : false;
@@ -313,6 +331,24 @@ async function handleEditProject(req, res) {
     try {
         const { id } = req.params;
         const { title, content, start_date, end_date, node, react, golang, js } = req.body;
+        if (!title || !content) {
+            req.flash('danger', 'Input form must be filled in')
+            return res.redirect(`/edit-project/${id}`)
+        }
+
+        if (start_date == '') {
+            req.flash('danger', 'Please input start date')
+            return res.redirect(`/edit-project/${id}`)
+        }
+        if (end_date == '') {
+            req.flash('danger', 'Please input end date')
+            return res.redirect(`/edit-project/${id}`)
+        }
+
+        if (end_date <= start_date) {
+            req.flash('danger', 'End Date must be after Start Date')
+            return res.redirect(`/edit-project/${id}`)
+        }
         const is_node = node ? true : false;
         const is_react = react ? true : false;
         const is_golang = golang ? true : false;

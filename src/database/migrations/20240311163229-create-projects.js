@@ -10,19 +10,29 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       start_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
+        validate: {
+          isDate: true,
+        },
       },
       end_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
+        validate: {
+          isDate: true,
+        },
       },
       image: {
         type: Sequelize.STRING
       },
       content: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       node: {
         type: Sequelize.BOOLEAN
