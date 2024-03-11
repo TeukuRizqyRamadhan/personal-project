@@ -89,41 +89,44 @@
     <a href="project" rel="noopener noreferrer">
         <h1 class="text-center mt-5">MY PROJECT</h1>
     </a>
-    <div id="contents" class="d-flex justify-content-center flex-wrap">
+    <div id="contents" class="d-flex row">
         {{#each data}}
-        <div class="card me-3 mb-3" style="max-width: 18rem;">
-            <img src="{{this.image}}" class="card-img-top" alt="..." />
-            <div class="card-body">
-                <h5 class="card-title"><a class="text-decoration-none" href="/project-detail/{{this.id}}"
-                        target="_blank">{{this.title}}</a></h5>
-                <p class="card-text text-truncate"><small class="text-body-secondary">Durasi :
-                        {{this.diff_date}}
-                    </small></p>
-                <div class="multi-line-text-truncate">
-                    {{this.content}}
-                </div>
-                <div class="mt-2">
-                    {{#if this.node}}
-                    <i class="me-2"><i class="fa-brands fa-node fa-2x"></i></i>
-                    {{/if}}
-                    {{#if this.react}}
-                    <i class="me-2"><i class="fa-brands fa-react fa-2x"></i></i>
-                    {{/if}}
-                    {{#if this.golang}}
-                    <i class="me-2"><i class="fa-brands fa-golang fa-2x"></i></i>
-                    {{/if}}
-                    {{#if this.js}}
-                    <i class="me-2"><i class="fa-brands fa-js fa-2x"></i></i>
-                    {{/if}}
-                </div>
-                <div class="d-flex flex-row mt-2 align-items-end">
-                    <a class="btn btn-secondary me-2" href="/edit-project/{{this.id}}">Edit post</a>
-                    <a class="btn btn-primary me-2" href="/delete-project/{{this.id}}">Delete post</a>
+        <div class="col-md-4 mb-3">
+            <div class="card m-auto" style="max-width: 18rem;">
+                <img src="{{this.image}}" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title"><a class="text-decoration-none" href="/project-detail/{{this.id}}"
+                            target="_blank">{{this.title}}</a></h5>
+                    <p class="card-text text-truncate"><small class="text-body-secondary">Durasi :
+                            {{this.diff_date}}
+                        </small></p>
+                    <div class="multi-line-text-truncate">
+                        {{this.content}}
+                    </div>
+                    <div class="mt-2">
+                        {{#if this.node}}
+                        <i class="me-2"><i class="fa-brands fa-node fa-2x"></i></i>
+                        {{/if}}
+                        {{#if this.react}}
+                        <i class="me-2"><i class="fa-brands fa-react fa-2x"></i></i>
+                        {{/if}}
+                        {{#if this.golang}}
+                        <i class="me-2"><i class="fa-brands fa-golang fa-2x"></i></i>
+                        {{/if}}
+                        {{#if this.js}}
+                        <i class="me-2"><i class="fa-brands fa-js fa-2x"></i></i>
+                        {{/if}}
+                    </div>
+                    <div class="d-flex flex-row mt-2 align-items-end">
+                        <a class="btn btn-secondary me-2" href="/edit-project/{{this.id}}">Edit post</a>
+                        <a class="btn btn-primary me-2" href="/delete-project/{{this.id}}">Delete post</a>
+                    </div>
                 </div>
             </div>
         </div>
         {{/each}}
     </div>
+
 
     {{!-- <div class="container-fluid  d-flex justify-content-center align-items-center mt-5">
         <div class="row row-cols-1 row-cols-md-3 g-5">
