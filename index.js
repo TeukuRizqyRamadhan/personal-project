@@ -284,6 +284,7 @@ async function handleAddProject(req, res) {
 
 
         await sequelizeConfig.query(QueryName)
+        req.flash('success', 'Project added successfully');
         res.redirect("/project");
     } catch (error) {
         console.log(error)
@@ -296,7 +297,7 @@ async function handleDeleteProject(req, res) {
         const QueryName = `DELETE FROM projects WHERE id = ${id}`;
 
         await sequelizeConfig.query(QueryName)
-
+        req.flash('success', 'Project deleted successfully');
         res.redirect("/project");
     } catch (error) {
         console.log(error);
@@ -373,7 +374,7 @@ async function handleEditProject(req, res) {
         `;
 
         await sequelizeConfig.query(QueryName);
-
+        req.flash('success', 'Project edit successfully');
         res.redirect("/project");
     } catch (error) {
         console.log(error);
