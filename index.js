@@ -202,6 +202,19 @@ async function register(req, res) {
     try {
         const { name, email, password } = req.body
 
+        if (!name) {
+            req.flash('danger', 'Name field cannot be empty')
+            return res.redirect("/register")
+        }
+        if (!email) {
+            req.flash('danger', 'Email field cannot be empty')
+            return res.redirect("/register")
+        }
+        if (!password) {
+            req.flash('danger', 'Password field cannot be empty')
+            return res.redirect("/register")
+        }
+
         const existingUser = await sequelizeConfig.query(`SELECT * FROM users WHERE email = '${email}'`, { type: QueryTypes.SELECT })
         if (existingUser.length > 0) {
             req.flash('danger', 'Email has already been registered')
@@ -217,7 +230,7 @@ async function register(req, res) {
                     name, email, password, "createdAt", "updatedAt")
                     VALUES ('${name}','${email}','${dataHash}', NOW(), NOW())`)
                 req.flash('success', 'Account registered successfully')
-                res.redirect("/login");
+                res.redirect("/");
 
             }
         })
@@ -235,8 +248,13 @@ async function login(req, res) {
     try {
         const { email, password } = req.body;
         const queryName = `SELECT * FROM users WHERE email = '${email}'`
-
         const isCheckEmail = await sequelizeConfig.query(queryName, { type: QueryTypes.SELECT })
+
+        if (!email && !password) {
+            req.flash('danger', 'Input form cannot be empty')
+            res.redirect("/login")
+        }
+
         if (!isCheckEmail.length) {
             req.flash('danger', 'Email has not been registered')
             return res.redirect("/login")
