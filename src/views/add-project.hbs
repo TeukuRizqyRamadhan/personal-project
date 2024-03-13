@@ -15,7 +15,7 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3">
-    <div class="container-fluid">
+    <div class="container-fluid d-flex">
       <img src="assets/img/brandred.png" alt="logo-dumbways" style="width: 50px;" class="ms-3 me-5">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
             <a class="nav-link active" aria-current="page" href="add-project">Add Project</a>
           </li>
         </ul>
-        <form class="d-flex">
+        <div class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             {{#if isLogin}}
             <li class="nav-item">
@@ -52,7 +52,7 @@
               <a class="btn btn-dumbways me-3" href="contact" role="button">Contact Me</a>
             </li>
           </ul>
-        </form>
+        </div>
       </div>
     </div>
   </nav>
@@ -64,13 +64,6 @@
     <div class="alert alert-danger mt-5" role="alert">
       <div class="container">
         {{messages.danger}}
-      </div>
-    </div>
-    {{/if}}
-    {{#if messages.success}}
-    <div class="alert alert-success" role="alert">
-      <div class="container">
-        {{messages.success}}
       </div>
     </div>
     {{/if}}

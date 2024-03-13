@@ -27,7 +27,7 @@
                         <a class="nav-link" aria-current="page" href="add-project">Add Project</a>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link me-3 active" aria-current="page" href="/login">Login</a>
@@ -39,19 +39,19 @@
                             <a class="btn btn-dumbways me-3" href="contact" role="button">Contact Me</a>
                         </li>
                     </ul>
-                </form>
+                </div>
             </div>
         </div>
     </nav>
-    {{#if messages.danger}}
-    <div class="alert alert-danger" role="alert">
-        <div class="container">
-            {{messages.danger}}
-        </div>
-    </div>
-    {{/if}}
 
     <div class="container-lg">
+        {{#if messages.danger}}
+        <div class="alert alert-danger mt-5" role="alert">
+            <div class="container">
+                {{messages.danger}}
+            </div>
+        </div>
+        {{/if}}
         <h1 class="text-center mt-5">LOGIN</h1>
         <form method="post" action="/login">
             <div class="form-group mb-3">

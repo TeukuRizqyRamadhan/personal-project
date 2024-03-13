@@ -38,10 +38,10 @@ app.use(
 app.get("/", home);
 app.get("/project", project);
 app.get("/project-detail/:id", projectDetail);
-app.get("/add-project", addProject);
+app.get("/add-project", requireLogin, addProject);
 app.post("/add-project", handleAddProject);
-app.get("/delete-project/:id", handleDeleteProject);
-app.get("/edit-project/:id", editProject);
+app.get("/delete-project/:id", requireLogin, handleDeleteProject);
+app.get("/edit-project/:id", requireLogin, editProject);
 app.post("/edit-project/:id", handleEditProject);
 app.get("/contact", contact);
 app.get("/testimonial", testimonial);
@@ -52,6 +52,14 @@ app.post("/login", login);
 app.get("/logout", logout);
 
 // End Routing
+
+function requireLogin(req, res, next) {
+    if (!req.session.isLogin) {
+        req.flash('danger', 'You must be logged in to access this page');
+        return res.redirect('/login');
+    }
+    next();
+};
 
 async function home(req, res) {
     try {
