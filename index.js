@@ -101,39 +101,48 @@ async function home(req, res) {
 
 async function project(req, res) {
     try {
-        const QueryName = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author FROM projects p LEFT JOIN "users" u ON p.author = u.id ORDER BY id DESC`;
-        const QueryNameLogin = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author 
-        FROM projects p 
-        LEFT JOIN "users" u ON p.author = u.id 
-        WHERE p.author = ${req.session.idUser}
-        ORDER BY p.id DESC`;
+
+        if (req.session.isLogin === true) {
+            const QueryNameLogin = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author 
+            FROM projects p 
+            LEFT JOIN "users" u ON p.author = u.id 
+            WHERE p.author = ${req.session.idUser}
+            ORDER BY p.id DESC`;
+            const projectLogin = await sequelizeConfig.query(QueryNameLogin, { type: QueryTypes.SELECT })
+
+            const objLogin = projectLogin.map((datas) => {
+                return {
+                    ...datas,
+                    startDateFormatted: new Date(datas.start_date).toLocaleDateString(),
+                    endDateFormatted: new Date(datas.end_date).toLocaleDateString()
+                }
+
+            })
+            res.render("project", {
+                datas: objLogin,
+                isLogin: req.session.isLogin,
+                user: req.session.user
+            });
+        } else {
+            const QueryName = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author FROM projects p LEFT JOIN "users" u ON p.author = u.id ORDER BY id DESC`;
 
 
-        const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
-        const projectLogin = await sequelizeConfig.query(QueryNameLogin, { type: QueryTypes.SELECT })
+            const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
 
-        const obj = project.map((data) => {
-            return {
-                ...data,
-                // author: "Teuku Rizqy Ramadhan",
-                startDateFormatted: new Date(data.start_date).toLocaleDateString(),
-                endDateFormatted: new Date(data.end_date).toLocaleDateString()
-            }
-        })
-        const objLogin = projectLogin.map((datas) => {
-            return {
-                ...datas,
-                startDateFormatted: new Date(datas.start_date).toLocaleDateString(),
-                endDateFormatted: new Date(datas.end_date).toLocaleDateString()
-            }
-        })
-
-        res.render("project", {
-            data: obj,
-            datas: objLogin,
-            isLogin: req.session.isLogin,
-            user: req.session.user
-        });
+            const obj = project.map((data) => {
+                return {
+                    ...data,
+                    // author: "Teuku Rizqy Ramadhan",
+                    startDateFormatted: new Date(data.start_date).toLocaleDateString(),
+                    endDateFormatted: new Date(data.end_date).toLocaleDateString()
+                }
+            })
+            res.render("project", {
+                data: obj,
+                isLogin: req.session.isLogin,
+                user: req.session.user
+            });
+        }
     } catch (error) {
         console.log(error);
     }
