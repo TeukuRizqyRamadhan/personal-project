@@ -103,14 +103,14 @@ async function project(req, res) {
     try {
 
         if (req.session.isLogin === true) {
-            const QueryNameLogin = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author 
+            const QueryName = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author 
             FROM projects p 
             LEFT JOIN "users" u ON p.author = u.id 
             WHERE p.author = ${req.session.idUser}
             ORDER BY p.id DESC`;
-            const projectLogin = await sequelizeConfig.query(QueryNameLogin, { type: QueryTypes.SELECT })
+            const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
 
-            const objLogin = projectLogin.map((datas) => {
+            const objLogin = project.map((datas) => {
                 return {
                     ...datas,
                     startDateFormatted: new Date(datas.start_date).toLocaleDateString(),
