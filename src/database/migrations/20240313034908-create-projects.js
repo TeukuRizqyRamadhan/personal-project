@@ -10,8 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.STRING
       },
       start_date: {
         type: Sequelize.DATE,
@@ -22,7 +21,6 @@ module.exports = {
       },
       end_date: {
         type: Sequelize.DATE,
-        allowNull: false,
         validate: {
           isDate: true,
         },
@@ -31,8 +29,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       content: {
-        type: Sequelize.TEXT,
-        allowNull: false,
+        type: Sequelize.TEXT
       },
       node: {
         type: Sequelize.BOOLEAN
@@ -48,6 +45,15 @@ module.exports = {
       },
       diff_date: {
         type: Sequelize.STRING
+      },
+      author: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

@@ -4,15 +4,28 @@ import connection from "./src/config/connection.js";
 import bcrypt from 'bcrypt';
 import session from 'express-session'
 import flash from 'express-flash';
+import multer from 'multer';
+
 const app = express()
 const port = 3000
 
 const sequelizeConfig = new Sequelize(connection.development)
+const multerConfig = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'src/uploads')
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+        cb(null, file.fieldname + '-' + uniqueSuffix + '.png')
+    }
+})
+const upload = multer({ storage: multerConfig })
 
 app.set("view engine", "hbs")
 app.set("views", "src/views")
 
 app.use("/assets", express.static("src/assets"))
+app.use("/uploads", express.static("src/uploads"));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(flash());
@@ -39,17 +52,17 @@ app.get("/", home);
 app.get("/project", project);
 app.get("/project-detail/:id", projectDetail);
 app.get("/add-project", requireLogin, addProject);
-app.post("/add-project", handleAddProject);
 app.get("/delete-project/:id", requireLogin, handleDeleteProject);
 app.get("/edit-project/:id", requireLogin, editProject);
-app.post("/edit-project/:id", handleEditProject);
 app.get("/contact", contact);
 app.get("/testimonial", testimonial);
 app.get("/register", formRegister);
-app.post("/register", register);
 app.get("/login", formLogin);
-app.post("/login", login);
 app.get("/logout", logout);
+app.post("/add-project", upload.single("image"), handleAddProject);
+app.post("/edit-project/:id", upload.single("image"), handleEditProject);
+app.post("/register", register);
+app.post("/login", login);
 
 // End Routing
 
@@ -70,7 +83,7 @@ async function home(req, res) {
         const obj = project.map((data) => {
             return {
                 ...data,
-                author: "Teuku Rizqy Ramadhan",
+                // author: "Teuku Rizqy Ramadhan",
                 startDateFormatted: new Date(data.start_date).toLocaleDateString(),
                 endDateFormatted: new Date(data.end_date).toLocaleDateString()
             }
@@ -88,21 +101,36 @@ async function home(req, res) {
 
 async function project(req, res) {
     try {
-        const QueryName = "SELECT * FROM projects ORDER BY id DESC"
+        const QueryName = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author FROM projects p LEFT JOIN "users" u ON p.author = u.id ORDER BY id DESC`;
+        const QueryNameLogin = `SELECT p.id, p.title, p.start_date, p.end_date, p.image, p.content, p.node, p.react, p.golang, p.js, p.diff_date, p."updatedAt", u.name AS author 
+        FROM projects p 
+        LEFT JOIN "users" u ON p.author = u.id 
+        WHERE p.author = ${req.session.idUser}
+        ORDER BY p.id DESC`;
+
 
         const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
+        const projectLogin = await sequelizeConfig.query(QueryNameLogin, { type: QueryTypes.SELECT })
 
         const obj = project.map((data) => {
             return {
                 ...data,
-                author: "Teuku Rizqy Ramadhan",
+                // author: "Teuku Rizqy Ramadhan",
                 startDateFormatted: new Date(data.start_date).toLocaleDateString(),
                 endDateFormatted: new Date(data.end_date).toLocaleDateString()
+            }
+        })
+        const objLogin = projectLogin.map((datas) => {
+            return {
+                ...datas,
+                startDateFormatted: new Date(datas.start_date).toLocaleDateString(),
+                endDateFormatted: new Date(datas.end_date).toLocaleDateString()
             }
         })
 
         res.render("project", {
             data: obj,
+            datas: objLogin,
             isLogin: req.session.isLogin,
             user: req.session.user
         });
@@ -122,6 +150,8 @@ async function projectDetail(req, res) {
     try {
         const id = req.params.id;
         const QueryName = `SELECT * FROM projects where id=${id}`
+
+
 
         const project = await sequelizeConfig.query(QueryName, { type: QueryTypes.SELECT })
         const obj = project.map((data) => {
@@ -177,7 +207,8 @@ async function register(req, res) {
                 await sequelizeConfig.query(`INSERT INTO users(
                     name, email, password, "createdAt", "updatedAt")
                     VALUES ('${name}','${email}','${dataHash}', NOW(), NOW())`)
-                res.redirect("/");
+                req.flash('success', 'Account registered successfully')
+                res.redirect("/login");
 
             }
         })
@@ -212,6 +243,7 @@ async function login(req, res) {
                 } else {
                     req.session.isLogin = true;
                     req.session.user = isCheckEmail[0].name;
+                    req.session.idUser = isCheckEmail[0].id;
                     req.flash("succes", "login success");
 
                     return res.redirect("/");
@@ -265,10 +297,10 @@ const getDurationTime = (start_date, end_date) => {
 
 async function handleAddProject(req, res) {
     try {
-        // const titleData = req.body.title;
-        // const content = req.body.content;
         const { title, content, start_date, end_date, node, react, golang, js } = req.body;
-        if (!title || !content) {
+        const author = req.session.idUser;
+        const image = req.file.filename;
+        if (!title || !content || !image) {
             req.flash('danger', 'Input form must be filled in')
             return res.redirect("/add-project")
         }
@@ -291,10 +323,9 @@ async function handleAddProject(req, res) {
         const is_golang = golang ? true : false;
         const is_js = js ? true : false;
         const diff_date = getDurationTime(start_date, end_date);
-        const image = "https://github.com/images/modules/search/dark.png"
         const QueryName = `INSERT INTO projects(
-            title, start_date, end_date, image, content, node, react, golang, js, diff_date, "createdAt", "updatedAt")
-            VALUES ('${title}','${start_date}','${end_date}','${image}','${content}', '${is_node}', '${is_react}','${is_golang}','${is_js}', '${diff_date}',NOW(), NOW())`;
+            title, start_date, end_date, image, content, node, react, golang, js, diff_date, author, "createdAt", "updatedAt")
+            VALUES ('${title}','${start_date}','${end_date}','${image}','${content}', '${is_node}', '${is_react}','${is_golang}','${is_js}', '${diff_date}', '${author}', NOW(), NOW())`;
 
 
         await sequelizeConfig.query(QueryName)
@@ -346,7 +377,8 @@ async function handleEditProject(req, res) {
     try {
         const { id } = req.params;
         const { title, content, start_date, end_date, node, react, golang, js } = req.body;
-        if (!title || !content) {
+        const image = req.file.filename;
+        if (!title || !content || !image) {
             req.flash('danger', 'Input form must be filled in')
             return res.redirect(`/edit-project/${id}`)
         }
@@ -376,6 +408,7 @@ async function handleEditProject(req, res) {
                 title = '${title}',
                 start_date = '${start_date}',
                 end_date = '${end_date}',
+                image = '${image}',
                 content = '${content}',
                 node = '${is_node}',
                 react = '${is_react}',

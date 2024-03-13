@@ -14,16 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   projects.init({
-    title: DataTypes.STRING,
-    start_date: DataTypes.DATE,
-    end_date: DataTypes.DATE,
-    image: DataTypes.STRING,
-    content: DataTypes.TEXT,
-    node: DataTypes.BOOLEAN,
-    react: DataTypes.BOOLEAN,
-    golang: DataTypes.BOOLEAN,
-    js: DataTypes.BOOLEAN,
-    diff_date: DataTypes.STRING
+    title: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'projects',

@@ -52,6 +52,13 @@
             </div>
         </div>
         {{/if}}
+        {{#if messages.success}}
+        <div class="alert alert-success mt-5" role="alert">
+            <div class="container">
+                {{messages.success}}
+            </div>
+        </div>
+        {{/if}}
         <h1 class="text-center mt-5">LOGIN</h1>
         <form method="post" action="/login">
             <div class="form-group mb-3">
