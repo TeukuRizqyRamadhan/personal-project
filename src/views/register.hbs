@@ -45,6 +45,13 @@
         </div>
     </nav>
     <div class="container">
+        {{#if messages.danger}}
+        <div class="alert alert-danger mt-5" role="alert">
+            <div class="container">
+                {{messages.danger}}
+            </div>
+        </div>
+        {{/if}}
         <h1 class="text-center mt-5">REGISTER</h1>
         <form method="post" action="/register">
             <div class="form-group mt-5 mb-3">
