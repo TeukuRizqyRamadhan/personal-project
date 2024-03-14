@@ -404,38 +404,44 @@ async function handleEditProject(req, res) {
     try {
         const { id } = req.params;
         const { title, content, start_date, end_date, node, react, golang, js } = req.body;
-        const image = req.file.filename;
-        if (!title || !content || !image) {
-            req.flash('danger', 'Input form must be filled in')
-            return res.redirect(`/edit-project/${id}`)
+
+        if (!title || !content) {
+            req.flash('danger', 'Input form must be filled in');
+            return res.redirect(`/edit-project/${id}`);
         }
 
         if (start_date == '') {
-            req.flash('danger', 'Please input start date')
-            return res.redirect(`/edit-project/${id}`)
+            req.flash('danger', 'Please input start date');
+            return res.redirect(`/edit-project/${id}`);
         }
         if (end_date == '') {
-            req.flash('danger', 'Please input end date')
-            return res.redirect(`/edit-project/${id}`)
+            req.flash('danger', 'Please input end date');
+            return res.redirect(`/edit-project/${id}`);
         }
 
         if (end_date <= start_date) {
-            req.flash('danger', 'End Date must be after Start Date')
-            return res.redirect(`/edit-project/${id}`)
+            req.flash('danger', 'End Date must be after Start Date');
+            return res.redirect(`/edit-project/${id}`);
         }
         const is_node = node ? true : false;
         const is_react = react ? true : false;
         const is_golang = golang ? true : false;
         const is_js = js ? true : false;
         const diff_date = getDurationTime(start_date, end_date);
-        // Jika Anda ingin memperbarui data selain judul dan konten, sesuaikan dengan kebutuhan
+
+        let image = '';
+
+        if (req.file) {
+            image = req.file.filename;
+        }
+
         const QueryName = `
             UPDATE projects 
             SET 
                 title = '${title}',
                 start_date = '${start_date}',
                 end_date = '${end_date}',
-                image = '${image}',
+                ${image ? `image = '${image}',` : ''}
                 content = '${content}',
                 node = '${is_node}',
                 react = '${is_react}',
@@ -450,10 +456,12 @@ async function handleEditProject(req, res) {
         await sequelizeConfig.query(QueryName);
         req.flash('success', 'Project edit successfully');
         res.redirect("/project");
+
     } catch (error) {
         console.log(error);
     }
 }
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
