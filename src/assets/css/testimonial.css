@@ -1,15 +1,44 @@
 * {
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif; */
 }
 
 body {
     background-color: #e3e7eb;
-    font-family: "Poppins";
+    /* font-family: "Poppins"; */
     margin: 0;
 }
 
 /* Navbar Start */
+
+.btn-dumbways {
+    background-color: #EC4D37;
+    color: white;
+}
+
+.btn-dumbways:hover {
+    color: #EC4D37;
+    background-color: white;
+    border: 1px solid #EC4D37;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn-primary {
+    background-color:
+        orangered !important;
+}
+
+.btn-primary:hover {
+    background-color: orangered !important;
+}
+
+.active {
+    color: orangered !important;
+    font-weight: bold;
+}
 
 nav {
     display: flex;
@@ -108,7 +137,7 @@ nav .right a {
 }
 
 .container-card .card {
-    width: 350px;
+    width: 300px;
     box-shadow: 5px 5px 15px #ccc;
     border-radius: 10px;
     margin: 3em;
@@ -132,6 +161,7 @@ nav .right a {
 .desc-testi {
     padding-left: 1.6em;
     padding-right: 1.6em;
+    margin-bottom: 1em;
 }
 
 .desc-testi i {
