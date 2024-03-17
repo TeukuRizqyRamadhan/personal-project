@@ -88,7 +88,7 @@ async function home(req, res) {
                 endDateFormatted: new Date(data.end_date).toLocaleDateString()
             }
         })
-
+        console.log(project)
         res.render("index", {
             data: obj,
             isLogin: req.session.isLogin,
@@ -166,7 +166,7 @@ async function projectDetail(req, res) {
         const obj = project.map((data) => {
             return {
                 ...data,
-                author: "Teuku Rizqy Ramadhan",
+                // author: "Teuku Rizqy Ramadhan",
                 startDateFormatted: new Date(data.start_date).toLocaleDateString(),
                 endDateFormatted: new Date(data.end_date).toLocaleDateString()
             }
@@ -326,11 +326,21 @@ async function handleAddProject(req, res) {
     try {
         const { title, content, start_date, end_date, node, react, golang, js } = req.body;
         const author = req.session.idUser;
-        const image = req.file.filename;
-        if (!title || !content || !image) {
+        let image = '';
+
+        if (req.file) {
+            image = req.file.filename;
+        } else {
             req.flash('danger', 'Input form must be filled in')
             return res.redirect("/add-project")
         }
+
+        if (!title || !content) {
+            req.flash('danger', 'Input form must be filled in')
+            return res.redirect("/add-project")
+        }
+
+
 
         if (start_date == '') {
             req.flash('danger', 'Please input start date')
